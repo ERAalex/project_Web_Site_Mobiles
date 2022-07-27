@@ -63,7 +63,17 @@
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                   aria-expanded="false">Личный кабинет</a>
                 <ul class="dropdown-menu">
-                  <li class="nav-item"><a class="nav-link" href="login.html">Войти</a></li>
+
+
+                    <!--= ЛИЧНЫЙ. КАБИНЕТ - если пользователь зарег, то предлагает ВЫйти иначе ВОЙТИ =-->
+                  {% if user.is_authenticated %}
+                  <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Выйти</a></li>
+                  {% else %}
+                  <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Войти</a></li>
+                  {% endif %}
+
+
+
                   <li class="nav-item"><a class="nav-link" href="register.html">Регистрация</a></li>
                   <li class="nav-item"><a class="nav-link" href="tracking-order.html">Отслеживание</a></li>
                 </ul>
@@ -73,10 +83,24 @@
 
             </ul>
 
+              <!--= БЛОК отображения активирован ли Юзер. если нет то будет надпись LOG in> =-->
 
+              {% if user.is_authenticated %}
+              <div class = "login_chek_pass">
+                <p>Здравствуй, {{ user.username }}!</p>
+              </div>
+                {% else %}
+              <div class = "login_fail_check">
+                <a href="{% url 'login' %}">Войти в аккаунт</a>
+                {% endif %}
+              </div>
             <ul class="nav-shop">
+
+
               <!--= кнопка Лупа сверху справо можно настроить на отдельную страницу =-->
               <li class="nav-item"><button><i class="ti-search"></i></button></li>
+
+
               <!--= кнопка Тележка сверху справо можно настроить на отдельную страницу =-->
               <li class="nav-item"><button><i class="ti-shopping-cart"></i><span class="nav-shop__circle">3</span></button> </li>
               <!--= кнопка купить справо наверху =-->

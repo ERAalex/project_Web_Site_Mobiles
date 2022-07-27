@@ -1,4 +1,11 @@
 
+.login_chek_pass{
+margin-top: 15px;
+}
+
+.login_fail_check{
+margin-top: 1px;
+}
 
 @import url("https://fonts.googleapis.com/css?family=Oswald:400,500,600");
 
