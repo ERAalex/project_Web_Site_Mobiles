@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import main_images
 from .models import Top_Models
+from .forms import LoginForm, UserRegistrationForm
 
 
 def index(request):
@@ -18,3 +19,19 @@ def test(request):
 
     top_model_im1 = Top_Models.objects.filter(show_art1=True)
     return render(request, 'test.html', {'image_top': gl_img_verj, 'image_bot': gl_img_niz, 'top_model_image1' : top_model_im1})
+
+
+def register(request):
+    if request.method == 'POST':
+        user_form = UserRegistrationForm(request.POST)
+        if user_form.is_valid():
+            # Create a new user object but avoid saving it yet
+            new_user = user_form.save(commit=False)
+            # Set the chosen password
+            new_user.set_password(user_form.cleaned_data['password'])
+            # Save the User object
+            new_user.save()
+            return render(request, 'registration/registr_done.html', {'new_user': new_user})
+    else:
+        user_form = UserRegistrationForm()
+    return render(request, 'registration/registr.html', {'user_form': user_form})

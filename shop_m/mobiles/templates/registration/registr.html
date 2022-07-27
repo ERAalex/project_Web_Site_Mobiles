@@ -1,0 +1,174 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>Mobile Shop - Espinosa</title>
+    <!--   иконка напротив названия страницы         -->
+	<link rel="icon" href="{% static 'img/Fevicon.png' %}" type="image/png">
+
+
+  <link rel="stylesheet" href="{% static 'vendors/bootstrap/bootstrap.min.css' %}">
+    <!--   иконки из бутстрапа         -->
+  <link rel="stylesheet" href="{% static 'vendors/themify-icons/themify-icons.css' %}">
+    <!--   основные css         -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+<body>
+  <!--================ Start Header Menu Area =================-->
+	<header class="header_area">
+    <div class="main_menu">
+
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+
+          <!--=надо настроить переходы значок лупы и тележка=-->
+          <a class="navbar-brand logo_h" href="index.html"><img src="img/logo.png" alt=""></a>
+
+          <!--=ниспадающее меню наверху=-->
+          <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+            <ul class="nav navbar-nav menu_nav ml-auto mr-auto">
+
+              <li class="nav-item active"><a class="nav-link" href="index.html">Главная</a></li>
+              <!--=ниспадающее меню SHOP надо настроить все страницы=-->
+              <li class="nav-item submenu dropdown"><a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                  aria-expanded="false">Магазин</a>
+                <ul class="dropdown-menu">
+                  <li class="nav-item"><a class="nav-link" href="category.html">Продукты</a></li>
+                  <li class="nav-item"><a class="nav-link" href="single-product.html">Наличие</a></li>
+                  <li class="nav-item"><a class="nav-link" href="confirmation.html">Подтверждение</a></li>
+                  <li class="nav-item"><a class="nav-link" href="cart.html">Документы</a></li>
+                </ul>
+              </li>
+
+              <!--=ниспадающее меню BLOG надо настроить все страницы=-->
+
+              <li class="nav-item submenu dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                  aria-expanded="false">Статьи</a>
+                <ul class="dropdown-menu">
+                  <li class="nav-item"><a class="nav-link" href="blog.html">Производители</a></li>
+                  <li class="nav-item"><a class="nav-link" href="single-blog.html">Новинки</a></li>
+                </ul>
+              </li>
+
+
+              <!--=ниспадающее меню ЛИЧНАЯ страница =-->
+              <li class="nav-item submenu dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                  aria-expanded="false">Личный кабинет</a>
+                <ul class="dropdown-menu">
+
+
+                    <!--= ЛИЧНЫЙ. КАБИНЕТ - если пользователь зарег, то предлагает ВЫйти иначе ВОЙТИ =-->
+                  {% if user.is_authenticated %}
+                  <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Выйти</a></li>
+                  {% else %}
+                  <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Войти</a></li>
+                  {% endif %}
+
+
+
+                  <li class="nav-item"><a class="nav-link" href="register.html">Регистрация</a></li>
+                  <li class="nav-item"><a class="nav-link" href="tracking-order.html">Отслеживание</a></li>
+                </ul>
+              </li>
+
+              <li class="nav-item"><a class="nav-link" href="contact.html">Контакты</a></li>
+
+            </ul>
+
+              <!--= БЛОК отображения активирован ли Юзер. если нет то будет надпись LOG in> =-->
+
+              {% if user.is_authenticated %}
+              <div class = "login_chek_pass">
+                <p>Здравствуй, {{ user.username }}!</p>
+              </div>
+                {% else %}
+              <div class = "login_fail_check">
+                <a href="{% url 'login' %}">Войти в аккаунт</a>
+                {% endif %}
+              </div>
+            <ul class="nav-shop">
+
+
+              <!--= кнопка Лупа сверху справо можно настроить на отдельную страницу =-->
+              <li class="nav-item"><button><i class="ti-search"></i></button></li>
+
+
+              <!--= кнопка Тележка сверху справо можно настроить на отдельную страницу =-->
+              <li class="nav-item"><button><i class="ti-shopping-cart"></i><span class="nav-shop__circle">3</span></button> </li>
+              <!--= кнопка купить справо наверху =-->
+              <li class="nav-item"><a class="button button-header" href="#">Buy Now</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+	<!--================ End Header Menu Area =================-->
+
+  <main class="site-main">
+
+    <!--================  banner start =================-->
+    <section class="hero-banner">
+      <div class="container">
+        <div class="row no-gutters align-items-center pt-60px">
+          <div class="col-5 d-none d-sm-block">
+
+            <!--================  Главная картинка мобильника, надо сделать ее через админку =================-->
+
+
+            <div class="hero-banner__img">
+              {% for v in image_top %}
+              <img class="img-fluid" src="{{ v.artimage.url }}" alt="">
+              {% endfor %}
+            </div>
+
+
+
+
+          </div>
+          <div class="col-sm-7 col-lg-6 offset-lg-1 pl-4 pl-md-5 pl-lg-0">
+            <div class="hero-banner__content">
+              <h4>The best shop</h4>
+              <h1>Только лучшие технологии</h1>
+              <p>Наш магазин специализируется на продаже новых телефонов, только лучшее качество с постгарантийным ремонтом</p>
+              <a class="button button-hero" href="#">Смотреть Каталог</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!--================ ЧАСТЬ ДЛЯ РЕГИСТРАЦИИ =================-->
+
+<div class = "log_in_block">
+<h2>Регистрация на сайте</h2>
+<br>
+
+  <p>Пожалуйста, заполните форму:</p>
+  <br>
+    <form action="." method="post">
+        {{ user_form.as_p }}
+        {% csrf_token %}
+        <p><input type="submit" value="Create my account"></p>
+    </form>
+
+
+<a href="{% url 'index' %}">Вернуться на главную страницу</a>
+
+</form>
+<br>
+<br>
+
+</div>
+
+</body>
+</html>
