@@ -7,6 +7,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('mobiles.urls')),
+    path('', include('accounts_shop.urls')),
     path('', include('django.contrib.auth.urls')) # добавляем авторизацию по ссылке accounts
 
 ]  + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
