@@ -302,14 +302,14 @@ background:transparent;
 transition:all 0.3s ease 0s}
 
 
- /*  Кнопка сверху справо - Войти . Выйти из аккаунта  */
+ /*  ___Кнопка сверху справо - Войти . Выйти из аккаунта___  */
 
 .nav-shop li{
 display:inline-block;
 margin-top: 10px;
 margin-right:15px}
 
- /*  Наверху иконка тележки и лупы */
+ /*  ___Наверху иконка тележки и лупы___ */
 
 .nav-shop li i,.nav-shop li span{
 font-size: 20px;
@@ -432,6 +432,8 @@ padding-top:71px}
 
 .home_banner_area{min-height:700px}}
 
+
+
 @media (max-width: 767px){.home_banner_area{min-height:500px}.home_banner_area .banner_inner{min-height:500px}
 
 .home_banner_area .banner_inner .banner_content{margin-top:0px}
@@ -440,54 +442,12 @@ padding-top:71px}
 font-size:40px;
 line-height:50px}
 
-.blog_info.text-right{text-align:left !important;margin-bottom:10px}
-
-.home_banner_area .banner_inner .banner_content h3{font-size:30px}
-
-.home_banner_area .banner_inner .banner_content p br{display:none}
-
-.home_banner_area .banner_inner .banner_content h3 span{
-line-height:45px;
-padding-bottom:0px;
-padding-top:0px}
-
-.footer-bottom{text-align:center}
-
-.footer-bottom .footer-social{text-align:center;margin-top:15px}}
-
-@media (max-width: 575px){.top_menu{display:none}
-
-.header_area+section,.header_area+row,.header_area+div{
-margin-top:0px;
-padding-top:71px}
-
-.home_banner_area .banner_inner .banner_content h2{
-font-size:40px;
-line-height:44px}
-
-.home_banner_area{min-height:500px}
-
-.home_banner_area .banner_inner{min-height:500px}
-
-.blog_banner .banner_inner .blog_b_text{margin-top:0px}
-
-.home_banner_area .banner_inner .banner_content img{display:none}
-
-.home_banner_area .banner_inner .banner_content h5{margin-top:0px}
-
-.sample-text-area{padding:70px 0 70px 0}
-
-.generic-blockquote{padding:30px 15px 30px 30px}
-
-.blog_details h2{font-size:20px;line-height:30px}
-
-.blog_banner .banner_inner .blog_b_text h2{
-font-size:28px;
-line-height:38px}
-
-.footer-area{padding:70px 0px}
+.footer-area{
+padding:70px 0px}
 
 .single-footer-widget .sub-btn{right:0px}}
+
+
 
 @media (max-width: 480px){.header_area .navbar-collapse{max-height:250px}
 
@@ -499,16 +459,26 @@ line-height:38px}
 
 .comments-area .thumb{margin-right:10px}}
 
+
+
+
+
+
 .section-intro p{margin-bottom:3px}
 
 .section-intro__style{
 border-bottom:2px solid #384aeb;
 padding-bottom:8px}
 
+
+/* ___НАСТРОЙКИ ЦЕНТРАЛЬНОГО БАННЕРА___ */
+
 .hero-banner{
-background:#F1F6F7;
-position:relative;
-margin-bottom:20px}
+background: #F1F6F7;
+position: relative;
+margin-bottom: 20px}
+
+
 
 @media (min-width: 991px){.hero-banner{z-index:111}}.hero-banner::before{
 content:"";
@@ -530,17 +500,20 @@ left:0}
  /* _________________ 35%  это соотношение синего фона с голубым  _________________  */
 
  /* _________________ ниже сама картинка, которую обновляем через админку  _________________  */
+
+
+  /* ___КОНТЕЙНЕР ДЛЯ ГЛАВНОЙ КАРТИНКИ___  */
+
 .hero-banner__img{
 position:relative;
-top:1px;
+top: -30px;
 margin-bottom: 10px;
 }
 
-@media (max-width: 575px){.hero-banner__content{padding-bottom:50px}}
 
-@media (min-width: 1000px){.hero-banner__content{max-width:495px}}
 
  /* _________________ шрифт справо от картинки мобильника  _________________  */
+
 .hero-banner__content h4{
 font-size:30px;
 font-family:"Roboto",
@@ -556,6 +529,9 @@ text-transform:uppercase;
 font-weight:700;
 margin-bottom:10px}
 
+
+
+
 @media (min-width: 767px){.hero-banner__content h1{font-size:30px;margin-bottom:25px}}
 
 @media (min-width: 991px){.hero-banner__content h1{font-size:50px}}
@@ -563,13 +539,20 @@ margin-bottom:10px}
 .hero-banner__content p{margin-bottom:10px}
 
 
+
+
+
+/* --- ОФОРМЛЕНИЕ ЦЕНТРАЛЬНОЙ ПАНЕЛИ С ОТОБРАЖЕНИЕМ МОБИЛЬНИКОВ (8 штук)   */
+
 .card-product{
 border:0;
 margin-bottom:30px}
 
-.card-product p{margin-bottom:0}
+.card-product p{
+margin-bottom:0}
 
-.card-product__img{position:relative}
+.card-product__img{
+position:relative}
 
 .card-product__imgOverlay{
 background:rgba(255,255,255,0.5);
@@ -586,6 +569,7 @@ transition:all .48s ease}
 .card-product__imgOverlay li{
 display:inline-block}
 
+
 .card-product__imgOverlay li button{
 border:0;
 border-radius:0;
@@ -593,17 +577,19 @@ padding:7px 12px;
 background:#8894ff}
 
 .card-product__imgOverlay li button i,
-
 .card-product__imgOverlay li button span{
 font-size:15px;
 color:#fff;
 vertical-align:middle}
 
-.card-product__imgOverlay li button:hover{background:#384aeb}
+.card-product__imgOverlay li button:hover{
+background:#384aeb}
 
-.card-product__imgOverlay li:not(:last-child){margin-right:5px}
+.card-product__imgOverlay li:not(:last-child){
+margin-right:5px}
 
-.card-product__title a{color:#222}
+.card-product__title a{
+color:#222}
 
 .card-product__price{
 font-size:18px;
@@ -616,11 +602,26 @@ transform:translateY(0)}
 
 .card-product:hover .card-product__title a{color:#384aeb}
 
+
+
+
+/* --- ОСНОВНАЯ КАРТИНКА ВНИЗУ С ТЕЛЕЖКОЙ---*/
+
 .offer{background:url("../img/home/parallax-bg.png") right center no-repeat;background-size:cover}
 
-@media (min-width: 1200px){.offer{background-size:100% 100%}}.offer__content{padding:100px 0 110px 0}
+@media (min-width: 1200px){
+.offer{
+background-size:100% 100%}}
 
-@media (min-width: 1000px){.offer__content{padding:122px 0 135px 0}}
+.offer__content{
+padding:100px 0 110px 0}
+
+@media (min-width: 1000px){
+.offer__content{
+padding:122px 0 135px 0}}
+
+/* --- ОСНОВНАЯ КАРТИНКА ВНИЗУ С ТЕЛЕЖКОЙ---*/
+
 
 .offer__content h3{
 font-size:35px;
@@ -651,60 +652,10 @@ line-height:40px}
 
 #bestSellerCarousel .owl-next:hover i,#bestSellerCarousel .owl-next:hover span{color:#fff}
 
-#bestSellerCarousel .owl-prev{
-position:absolute;
-top:30%;
-transform:translateY(-30%);
-left:-20px}
 
 
-@media (min-width: 1340px){#bestSellerCarousel .owl-prev{left:-105px}}
 
-#bestSellerCarousel .owl-next{
-position:absolute;
-top:30%;
-transform:translateY(-30%);
-right:-20px}
-
-@media (min-width: 1340px){#bestSellerCarousel .owl-next{right:-105px}}
-
-.card-blog{border:0}.card-blog .card-body{padding:25px 25px 25px 0}
-
-.card-blog__info{margin-bottom:12px}
-
-.card-blog__info li{
-
-display:inline-block;
-font-size:14px;
-color:#999999}
-
-.card-blog__info li a{color:#999999}
-
-.card-blog__info li i,.card-blog__info li span{margin-right:5px;vertical-align:middle}
-
-.card-blog__info li:not(:last-child){margin-right:20px}
-
-.card-blog__title{
-font-size:20px;
-margin-bottom:20px}
-
-.card-blog__title a{color:#222}
-
-.card-blog__link{
-font-weight:500;
-color:#222}
-
-.card-blog__link i,.card-blog__link span{
-font-size:13px;
-padding-left:3px;
-display:inline-block;
-transition:all .5s ease}
-
-.card-blog:hover .card-blog__title a{color:#384aeb}
-
-.card-blog:hover .card-blog__link{color:#384aeb}
-
-.card-blog:hover .card-blog__link i,.card-blog:hover .card-blog__link span{padding-left:10px}
+/* --- ОКНО ВНИЗУ С ПОДПИСКОЙ  - SUBSCRIBE ---*/
 
 .subscribe{
 padding:45px 10px;
@@ -712,7 +663,11 @@ background:#fff;
 border-radius:5px;
 box-shadow:0px -5px 20px 0px rgba(56,74,235,0.1)}
 
-@media (min-width: 1000px){.subscribe{padding:85px 10px}}
+
+@media (min-width: 1000px){
+
+.subscribe{
+padding:85px 10px}}
 
 .subscribe__title{
 font-size:28px;
@@ -720,11 +675,22 @@ font-weight:500;
 text-transform:uppercase;
 margin-bottom:16px}
 
-@media (min-width: 1000px){.subscribe__title{font-size:36px}}
 
-.subscribe-form .form-group{margin-bottom:0;position:relative}
 
-.subscribe-form .form-group .info{position:absolute;top:50px;left:10px;color:#384aeb}
+@media (min-width: 1000px){
+
+.subscribe__title{
+font-size:36px}}
+
+.subscribe-form .form-group{
+margin-bottom:0;
+position:relative}
+
+.subscribe-form .form-group .info{
+position:absolute;
+top:50px;
+left:10px;
+color:#384aeb}
 
 .subscribe-form .form-control{
 border-radius:30px;
@@ -733,17 +699,37 @@ border-color:#EEEEEE;
 padding-left:20px;
 font-size:14px}
 
-@media (min-width: 800px){.subscribe-form .form-control{min-width:380px}}
 
-.subscribe-form .form-control::placeholder{color:#999999}
 
-.subscribe-form .form-control:focus{outline:0;box-shadow:none}
 
-.subscribe-form button{margin-left:15px}
 
-.subscribe-position{margin-bottom:20px}
 
-@media (min-width: 1000px){.subscribe-position{position:relative;top:100px;margin-bottom:0}}
+@media (min-width: 800px){
+
+.subscribe-form .form-control{
+min-width:380px}}
+
+.subscribe-form .form-control::placeholder{
+color:#999999}
+
+.subscribe-form .form-control:focus{
+outline:0;
+box-shadow:none}
+
+.subscribe-form button{
+margin-left:15px}
+
+.subscribe-position{
+margin-bottom:20px}
+
+
+/* --- ОКНО ВНИЗУ С ПОДПИСКОЙ  - SUBSCRIBE - РАСПОЛОЖЕНИЕ ---*/
+
+@media (min-width: 1000px){
+.subscribe-position{
+position:relative;
+top:100px;
+margin-bottom:0}}
 
 
 
@@ -828,7 +814,7 @@ padding:12px 40px;
 border-radius:30px}
 
 
-    /* КНОПОКА  - НАСТРОЙКА ПРИ НАВЕДЕНИИ */
+    /* ___КНОПОКА  - НАСТРОЙКА ПРИ НАВЕДЕНИИ___ */
 
 .button:hover{
 border-color: #00298a;

@@ -3,8 +3,28 @@ from PIL import Image
 from embed_video.fields import EmbedVideoField
 
 
-class Top_Models(models.Model):
+class all_products(models.Model):
+    id = models.AutoField(primary_key=True, unique=True)
+    title = models.CharField('Название модели', max_length=50)
+    price = models.CharField('Стоимость модели', null=True, max_length=50)
+    full_text = models.TextField('описание')
+    date = models.DateTimeField('Дата публикации')
+    small_image = models.ImageField(null=True, blank=True, upload_to='static/img/top_models', verbose_name='Мини-изображение')
+    artimage = models.ImageField(null=True, blank=True, upload_to='static/img/top_models', verbose_name=' основное изображение')
+    show_item = models.BooleanField('Показать', default=False)
 
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'Все товары'
+        verbose_name_plural = 'Все товары'
+
+
+
+class Top_Models(models.Model):
+    id = models.AutoField(primary_key=True, unique=True)
     title = models.CharField('Название модели', max_length=50)
     price = models.CharField('Стоимость модели', null=True, max_length=50)
     full_text = models.TextField('описание')
