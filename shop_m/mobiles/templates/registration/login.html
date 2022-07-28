@@ -103,8 +103,18 @@
 
               <!--= кнопка Тележка сверху справо можно настроить на отдельную страницу =-->
               <li class="nav-item"><button><i class="ti-shopping-cart"></i><span class="nav-shop__circle">3</span></button> </li>
-              <!--= кнопка купить справо наверху =-->
-              <li class="nav-item"><a class="button button-header" href="#">Buy Now</a></li>
+
+                            <!--= кнопка наверху вход выход =-->
+
+              {% if user.is_authenticated %}
+              <li class="nav-item"><a class="button button-header" href="{% url 'logout' %}">Выйти</a></li>
+
+              {% else %}
+              <li class="nav-item"><a class="button button-header" href="{% url 'login' %}">Войти в аккаунт</a></li>
+              {% endif %}
+
+
+
             </ul>
           </div>
         </div>
@@ -160,7 +170,15 @@
 <br>
 <br>
 
-<a href="{% url 'index' %}">Вернуться на главную страницу</a>
+<a class="button button-header" href="{% url 'registr' %}">Зарегистрироваться</a>
+
+
+<br>
+  <br>
+
+<a class="button button-header" href="{% url 'index' %}">Вернуться на главную страницу</a>
+
+
 
 </form>
 </div>

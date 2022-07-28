@@ -35,6 +35,7 @@
             <ul class="nav navbar-nav menu_nav ml-auto mr-auto">
 
               <li class="nav-item active"><a class="nav-link" href="index.html">Главная</a></li>
+
               <!--=ниспадающее меню SHOP надо настроить все страницы=-->
               <li class="nav-item submenu dropdown"><a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                   aria-expanded="false">Магазин</a>
@@ -73,8 +74,7 @@
                   {% endif %}
 
 
-
-                  <li class="nav-item"><a class="nav-link" href="register.html">Регистрация</a></li>
+                  <li class="nav-item"><a class="nav-link" href="{% url 'registr' %}">Регистрация</a></li>
                   <li class="nav-item"><a class="nav-link" href="tracking-order.html">Отслеживание</a></li>
                 </ul>
               </li>
@@ -89,9 +89,7 @@
               <div class = "login_chek_pass">
                 <p>Здравствуй, {{ user.username }}!</p>
               </div>
-                {% else %}
-              <div class = "login_fail_check">
-                <a href="{% url 'login' %}">Войти в аккаунт</a>
+
                 {% endif %}
               </div>
             <ul class="nav-shop">
@@ -104,7 +102,14 @@
               <!--= кнопка Тележка сверху справо можно настроить на отдельную страницу =-->
               <li class="nav-item"><button><i class="ti-shopping-cart"></i><span class="nav-shop__circle">3</span></button> </li>
               <!--= кнопка купить справо наверху =-->
-              <li class="nav-item"><a class="button button-header" href="#">Buy Now</a></li>
+
+              {% if user.is_authenticated %}
+              <li class="nav-item"><a class="button button-header" href="{% url 'logout' %}">Выйти</a></li>
+
+              {% else %}
+              <li class="nav-item"><a class="button button-header" href="{% url 'login' %}">Войти в аккаунт</a></li>
+              {% endif %}
+
             </ul>
           </div>
         </div>

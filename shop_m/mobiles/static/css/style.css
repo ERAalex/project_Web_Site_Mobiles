@@ -301,12 +301,18 @@ background:transparent;
 -o-transition:all 0.3s ease 0s;
 transition:all 0.3s ease 0s}
 
+
+ /*  Кнопка сверху справо - Войти . Выйти из аккаунта  */
+
 .nav-shop li{
 display:inline-block;
+margin-top: 10px;
 margin-right:15px}
 
+ /*  Наверху иконка тележки и лупы */
+
 .nav-shop li i,.nav-shop li span{
-font-size:16px;
+font-size: 20px;
 color:#222}
 
 .nav-shop li button{
@@ -319,7 +325,7 @@ position:relative}
 font-size:9px;
 display:inline-block;
 background:#384aeb;
-color:#fff;
+color: #fff;
 padding:0px 5px;
 border-radius:50%;
 position:absolute;
@@ -328,6 +334,10 @@ right:-12px}
 
 .nav-shop li:last-child{
 margin-left:40px}
+
+
+ /*   */
+
 
 @media (max-width: 1619px){.header_area .navbar .search{margin-left:40px}}
 @media (max-width: 1199px){.header_area .navbar .nav .nav-item{margin-right:28px}
@@ -736,6 +746,11 @@ font-size:14px}
 @media (min-width: 1000px){.subscribe-position{position:relative;top:100px;margin-bottom:0}}
 
 
+
+
+    /* НАСТРОЙКИ ВИДА КНОПОК ! */
+
+
 .button{
 display:inline-block;
 border:1px solid #384aeb;
@@ -787,24 +802,39 @@ border-color:#fff}
 .button-account:hover{
 border-color:#fff !important}
 
+
+
+    /* КНОПОКА СВЕРХУ ДЛЯ ВХОДА В АКК ! */
+
 .button-header{
 padding:10px 45px;
 background:transparent;
 color:#222;
-border-color:#EEEEEE}
+border-color: #a9b1f6}
 
 .button-hero{padding:12px 41px}
 
-.button--active{background:#384aeb;color:#fff}
+.button--active{
+background: #384aeb;
+color: #fff}
 
-.button-contactForm{border:1px solid #384aeb !important;border-radius:0;padding:11px 26px}
+.button-contactForm{
+border:1px solid #384aeb !important;
+border-radius:0;
+padding:11px 26px}
 
-.button-review{padding:12px 40px;border-radius:30px}
+.button-review{
+padding:12px 40px;
+border-radius:30px}
+
+
+    /* КНОПОКА  - НАСТРОЙКА ПРИ НАВЕДЕНИИ */
 
 .button:hover{
-border-color:#384aeb;
-background:transparent;
-color:#222}
+border-color: #00298a;
+background: #f5f7fb;
+color: #222}
+
 
 .button-register{
 font-size:14px;
