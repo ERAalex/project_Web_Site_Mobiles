@@ -1,7 +1,9 @@
 from django.shortcuts import render
+from django.core.paginator import Paginator
 from .models import main_images
 from .models import Top_Models
 from .forms import LoginForm, UserRegistrationForm
+
 
 
 def index(request):
@@ -13,8 +15,17 @@ def index(request):
     return render(request, 'index.html', {'image_top': gl_img_verj, 'image_bot': gl_img_niz, 'top_model_image1' : top_model_im1,
                                           'top_model_image2' : top_model_im2})
 
+
+
+CONTENT = [str(i) for i in range(10000)]
+
 def products(request):
-    return render(request, 'products.html')
+    paginator = Paginator(CONTENT, 2)
+    page = paginator.get_page(1)
+    context = {
+        'page': page
+    }
+    return render(request, 'products.html', context)
 
 
 

@@ -3,9 +3,16 @@
 
    {% block main_information %}
 
+              {% for x in page %}
+              {{ e }}
+              {% endfor %}
+
           <div class="col-md-6 col-lg-4 col-xl-3">
             <div class="card text-center card-product">
               <div class="card-product__img">
+
+
+
 
               {% for imag_top1 in top_model_image1 %}
               <img class="img-fluid" src="{{ imag_top1.small_image.url }}" alt="">
