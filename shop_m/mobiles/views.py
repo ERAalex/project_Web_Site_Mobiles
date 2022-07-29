@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.core.paginator import Paginator
 from .models import main_images
 from .models import Top_Models
+from .models import all_products
 from .forms import LoginForm, UserRegistrationForm
 
 
@@ -16,8 +17,9 @@ def index(request):
                                           'top_model_image2' : top_model_im2})
 
 
+all_prod_name = all_products.objects.all()
 
-CONTENT = [str(i) for i in range(10000)]
+CONTENT = [str(i) for i in all_prod_name]
 
 def products(request):
     paginator = Paginator(CONTENT, 2)
