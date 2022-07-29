@@ -17,15 +17,17 @@ def index(request):
                                           'top_model_image2' : top_model_im2})
 
 
-all_prod_name = all_products.objects.all()
+all_prod_name = all_products.objects.filter(artimage=True)
 
 CONTENT = [str(i) for i in all_prod_name]
 
 def products(request):
-    paginator = Paginator(CONTENT, 2)
+    all_prod_name = all_products.objects.filter(artimage=True)
+    paginator = Paginator(all_prod_name, 2)
     page = paginator.get_page(1)
     context = {
-        'page': page
+        'page': page,
+        'all_pr' :all_prod_name
     }
     return render(request, 'products.html', context)
 
