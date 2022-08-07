@@ -3,11 +3,14 @@
 /* _____________  Страница Products _____________ */
 
 .show_all_obj{
-background = black;
-weight = 400px;
-height = 700px;
+background: white;
+weight: 400px;
+height: 700px;
+}
 
-
+.img_all_prod{    /* ___задаем жесткие размеры для картинки, чтобы не зависеть от ее размера_____ */
+width: 80px;
+height: 100px;
 }
 
 
@@ -564,6 +567,10 @@ margin-bottom:30px}
 margin-bottom:0}
 
 .card-product__img{
+background:white;  /* --Фон задний у карты продукта   */
+display: inline-block;
+width: 200px;
+padding: 20px;
 position:relative}
 
 .card-product__imgOverlay{

@@ -17,9 +17,33 @@ def index(request):
                                           'top_model_image2' : top_model_im2})
 
 
-
 def products(request):
-    return render(request, 'products.html')
+    all_products_show = all_products.objects.all()
+    return render(request, 'products.html', {'all_products_show': all_products_show})
+
+
+# блок ссылок и вьюшек для вывода конкретных моделей внутри шаблона products
+
+def apple_show(request):
+    all_products_show = all_products.objects.filter(show_apple=True)
+    return render(request, 'products.html', {'all_products_show': all_products_show})
+
+def samsung_show(request):
+    all_products_show = all_products.objects.filter(show_samsung=True)
+    return render(request, 'products.html', {'all_products_show': all_products_show})
+
+def huawei_show(request):
+    all_products_show = all_products.objects.filter(show_huawei=True)
+    return render(request, 'products.html', {'all_products_show': all_products_show})
+
+def chip_show(request):
+    all_products_show = all_products.objects.all().order_by('price')
+    return render(request, 'products.html', {'all_products_show': all_products_show})
+
+def expensive_show(request):
+    all_products_show = all_products.objects.all().order_by('price').reverse()
+    return render(request, 'products.html', {'all_products_show': all_products_show})
+
 
 
 
