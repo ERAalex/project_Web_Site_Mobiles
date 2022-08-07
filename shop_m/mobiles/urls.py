@@ -8,5 +8,4 @@ urlpatterns = [
     path('registr/', views.register, name='registr'),
     path('products', products, name='products'),
 
-
 ]

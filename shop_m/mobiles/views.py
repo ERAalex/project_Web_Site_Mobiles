@@ -17,19 +17,9 @@ def index(request):
                                           'top_model_image2' : top_model_im2})
 
 
-all_prod_name = all_products.objects.filter(artimage=True)
-
-CONTENT = [str(i) for i in all_prod_name]
 
 def products(request):
-    all_prod_name = all_products.objects.filter(artimage=True)
-    paginator = Paginator(all_prod_name, 2)
-    page = paginator.get_page(1)
-    context = {
-        'page': page,
-        'all_pr' :all_prod_name
-    }
-    return render(request, 'products.html', context)
+    return render(request, 'products.html')
 
 
 
@@ -40,6 +30,9 @@ def test(request):
     top_model_im1 = Top_Models.object.filter(show_art1=True)
     return render(request, 'test.html', {'image_top': gl_img_verj, 'image_bot': gl_img_niz, 'top_model_image1' : top_model_im1})
 
+
+
+# Форма регистрации пользователя
 
 def register(request):
     if request.method == 'POST':

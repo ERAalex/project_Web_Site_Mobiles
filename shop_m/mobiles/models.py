@@ -12,6 +12,9 @@ class all_products(models.Model):
     small_image = models.ImageField(null=True, blank=True, upload_to='static/img/top_models', verbose_name='Мини-изображение')
     artimage = models.ImageField(null=True, blank=True, upload_to='static/img/top_models', verbose_name=' основное изображение')
     show_item = models.BooleanField('Показать', default=False)
+    show_apple = models.BooleanField('Apple', default=False)
+    show_samsung = models.BooleanField('Samsung', default=False)
+    show_huawei = models.BooleanField('Huawei', default=False)
 
 
     def __str__(self):
