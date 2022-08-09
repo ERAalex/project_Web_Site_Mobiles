@@ -65,6 +65,10 @@ class all_products(models.Model):
 class Order(models.Model):
     pass
 
+    class Meta:
+        verbose_name = 'Заказы'
+        verbose_name_plural = 'Заказы'
+
 
 class OrderPosition(models.Model):
     product = models.ForeignKey(all_products, on_delete=models.CASCADE, related_name='positions')
