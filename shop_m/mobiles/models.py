@@ -1,6 +1,42 @@
 from django.db import models
 from PIL import Image
-from embed_video.fields import EmbedVideoField
+from django.contrib.auth.models import User
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+
+
+# Расширение модели пользователя с помощью связи один-к-одному
+#__________
+# информация -  https://tproger.ru/translations/extending-django-user-model/
+# чтобы в шаблоне обратиться к данным  - <li>Местоположение: {{ user.profile.location }}</li>
+# для снижения запросов использовать код  - users = User.objects.all().select_related('profile')
+
+
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    bio = models.TextField(max_length=500, blank=True)
+    location = models.CharField(max_length=30, blank=True)
+    birth_date = models.DateField(null=True, blank=True)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'Пользователи'
+        verbose_name_plural = 'Пользователи'
+
+
+    @receiver(post_save, sender=User)
+    def create_user_profile(sender, instance, created, **kwargs):
+        if created:
+            Profile.objects.create(user=instance)
+
+    @receiver(post_save, sender=User)
+    def save_user_profile(sender, instance, **kwargs):
+        instance.profile.save()
+
+#__________
+
 
 
 class all_products(models.Model):
@@ -23,6 +59,17 @@ class all_products(models.Model):
     class Meta:
         verbose_name = 'Все товары'
         verbose_name_plural = 'Все товары'
+
+
+
+class Order(models.Model):
+    pass
+
+
+class OrderPosition(models.Model):
+    product = models.ForeignKey(all_products, on_delete=models.CASCADE, related_name='positions')
+    order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name='positions')
+    quantity = models.IntegerField()
 
 
 
@@ -49,6 +96,8 @@ class Top_Models(models.Model):
     class Meta:
         verbose_name = 'Топ модели'
         verbose_name_plural = 'Топ модели'
+
+
 
 
 
