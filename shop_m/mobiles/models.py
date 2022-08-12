@@ -3,6 +3,7 @@ from PIL import Image
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from django.utils.text import slugify
 
 
 # Расширение модели пользователя с помощью связи один-к-одному
@@ -12,14 +13,12 @@ from django.dispatch import receiver
 # для снижения запросов использовать код  - users = User.objects.all().select_related('profile')
 
 
+
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     bio = models.TextField(max_length=500, blank=True)
     location = models.CharField(max_length=30, blank=True)
     birth_date = models.DateField(null=True, blank=True)
-
-    def __str__(self):
-        return self.title
 
     class Meta:
         verbose_name = 'Пользователи'
@@ -51,6 +50,11 @@ class all_products(models.Model):
     show_apple = models.BooleanField('Apple', default=False)
     show_samsung = models.BooleanField('Samsung', default=False)
     show_huawei = models.BooleanField('Huawei', default=False)
+    slug = models.SlugField(blank=True)
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        super(all_products, self).save(*args, **kwargs)
 
 
     def __str__(self):

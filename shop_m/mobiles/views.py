@@ -45,6 +45,14 @@ def expensive_show(request):
     return render(request, 'products.html', {'all_products_show': all_products_show})
 
 
+# SLUG  поле обработка:
+
+def show_product(request, slug):
+    template = 'product_show.html'
+    context = all_products.objects.filter(title=slug)
+    return render(request, template, {'context' : context})
+
+
 
 
 def test(request):

@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from mobiles.views import products
+from mobiles.views import products, show_product
 
 urlpatterns = [
     path('', views.index, name='index'),
@@ -15,5 +15,6 @@ urlpatterns = [
     path('huawei', views.huawei_show, name='huawei'),
     path('prod_chip', views.chip_show, name='prod_chip'),
     path('prod_expens', views.expensive_show, name='prod_expens'),
+    path('catalog/<slug:slug>/', views.show_product, name='phone'),
 
 ]
