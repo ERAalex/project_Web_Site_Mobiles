@@ -22,7 +22,4 @@ urlpatterns = [
     path('<int:pk>', views.ProductDeatailView.as_view(), name='product_detail'),
 
 
-
-
-
 ]
