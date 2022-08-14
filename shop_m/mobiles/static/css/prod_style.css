@@ -1,5 +1,38 @@
 
 
+
+/* _____________  Страница отображения продуктов DetailView _____________ */
+
+
+/* _____Дивы, которые нуно раместить в ряд, размещаем внутри блока со следующим css-правилом
+display: table;
+А самим дивам задаем
+display: table-cell;____ */
+
+.Detailprod{
+height: 400px;
+weight: 300px;
+display: table;
+}
+
+.Detail_left_for_img{
+display: table-cell;
+background-color: white;
+height: 200px;
+weight: 200px;
+
+}
+
+.Detail_right_for_text{
+display: table-cell;
+background: white;
+height: 200px;
+weight: 200px;
+}
+
+}
+
+
 /* _____________  Страница Products _____________ */
 
 .show_all_obj{

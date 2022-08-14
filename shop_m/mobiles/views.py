@@ -4,6 +4,7 @@ from .models import main_images
 from .models import Top_Models
 from .models import all_products
 from .forms import LoginForm, UserRegistrationForm
+from django.views.generic import DetailView
 
 
 
@@ -22,7 +23,8 @@ def products(request):
     return render(request, 'products.html', {'all_products_show': all_products_show})
 
 
-# блок ссылок и вьюшек для вывода конкретных моделей внутри шаблона products
+
+###### блок ссылок и вьюшек для вывода конкретных моделей внутри шаблона products
 
 def apple_show(request):
     all_products_show = all_products.objects.filter(show_apple=True)
@@ -43,8 +45,16 @@ def chip_show(request):
 def expensive_show(request):
     all_products_show = all_products.objects.all().order_by('price').reverse()
     return render(request, 'products.html', {'all_products_show': all_products_show})
+######
 
 
+###### вывод каждого товара на отдельной странице через DetailView (если что, подробно все описал в WORD ищи в теории
+
+class ProductDeatailView(DetailView):
+    model = all_products
+    template_name = 'product_show.html'
+    context_object_name = 'product_see'
+######
 
 
 def test(request):

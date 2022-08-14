@@ -9,11 +9,20 @@ urlpatterns = [
     path('registr/', views.register, name='registr'),
     path('products', products, name='products'),
 
+
+
 # блок ссылок и вьюшек для вывода конкретных моделей внутри шаблона products
     path('apple', views.apple_show, name='apple'),
     path('samsung', views.samsung_show, name='samsung'),
     path('huawei', views.huawei_show, name='huawei'),
     path('prod_chip', views.chip_show, name='prod_chip'),
     path('prod_expens', views.expensive_show, name='prod_expens'),
+
+# просмотр каждого товара на отдельной странице
+    path('<int:pk>', views.ProductDeatailView.as_view(), name='product_detail'),
+
+
+
+
 
 ]

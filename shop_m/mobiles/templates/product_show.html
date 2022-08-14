@@ -179,28 +179,33 @@
               <a href="{% url 'prod_expens' %}" class="section-intro__style">Сначало дорогие</a>
 
         </div>
-        <div class="show_all_obj">
-
-              {% for product in all_products_show %}
 
 
-              <div class="card-product__img">
-                <div>
-                  <p>телефоны</p>
-                    <img class="img_all_prod" src="{{ product.small_image.url }}">
-                  <h4 class="card-product__title"><a href="{% url 'product_detail' product.id %}">{{ product.title }}</a></h4>
-                  <p class="card-product__price">{{ product.price }}</p>
-                </div>
-              </div>
-              {% endfor %}
+                                    <!--Django вставка данных  -->
+
+
+        <div class="Detailprod">
+
+            <div class="Detail_left_for_img">
+                <img class="img_all_prod" src="{{ product_see.artimage.url }}">
+                <h4 class="card-product__title">{{ product_see.title }}</h4>
+            </div>
+
+            <div class="Detail_right_for_text">
+                {{ product_see.full_text }}
+                <p></p>
+                <p class="card-product__price">{{ product_see.price }}</p>
+            </div>
+
+        </div>
+      </div>
 
 
         </div>
 
 
 
-
-
+        </div>
 
 
         <div class="row">

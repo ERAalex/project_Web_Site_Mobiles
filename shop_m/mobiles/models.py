@@ -1,6 +1,9 @@
 from django.db import models
 from PIL import Image
 from embed_video.fields import EmbedVideoField
+from django.utils.text import slugify
+
+
 
 
 class all_products(models.Model):
@@ -15,6 +18,12 @@ class all_products(models.Model):
     show_apple = models.BooleanField('Apple', default=False)
     show_samsung = models.BooleanField('Samsung', default=False)
     show_huawei = models.BooleanField('Huawei', default=False)
+    slug = models.SlugField(blank=True)
+
+# авто сохранение поля слаг = по полю title
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        super(all_products, self).save(*args, **kwargs)
 
 
     def __str__(self):
@@ -23,6 +32,7 @@ class all_products(models.Model):
     class Meta:
         verbose_name = 'Все товары'
         verbose_name_plural = 'Все товары'
+
 
 
 
