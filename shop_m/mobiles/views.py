@@ -59,7 +59,7 @@ def prod_pag_page(request):
         page = request.GET['page']
     else:
         page = 1
-    paginator = Paginator(pag_prod, 3)
+    paginator = Paginator(pag_prod, 6)
     try:
         pag_prod = paginator.page(page)
     except PageNotAnInteger:

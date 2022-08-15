@@ -24,7 +24,6 @@ display: table-cell;
 background-color: white;
 height: 500px;
 width: 300px;
-
 }
 
 .Detail_right_for_text{
@@ -34,15 +33,17 @@ height: 500px;
 width: 450px;
 }
 
-}
+/* _____________  Pagination block - _____________ */
 
+.container_pagin{
+background: white;
+margin-top: 250px;  /* слегка отдаляем вниз цифры прокрутки пагинатора 1-2-3 и тд */
+}
 
 /* _____________  Страница Products _____________ */
 
 .show_all_obj{
 background: white;
-weight: 400px;
-height: 700px;
 }
 
 .img_all_prod{    /* ___задаем жесткие размеры для картинки, чтобы не зависеть от ее размера_____ */
