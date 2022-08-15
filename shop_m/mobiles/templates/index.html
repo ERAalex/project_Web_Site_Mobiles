@@ -146,7 +146,7 @@
               <h4>The best shop</h4>
               <h1>Только лучшие технологии</h1>
               <p>Наш магазин специализируется на продаже новых телефонов, только лучшее качество с постгарантийным ремонтом</p>
-              <a class="button button-hero" href="#">Смотреть Каталог</a>
+              <a class="button button-hero" href="{% url 'products' %}">Смотреть Каталог</a>
             </div>
           </div>
         </div>
@@ -165,32 +165,151 @@
         <div class="row">
 
               <!-- ================ ТОП модели картинки ================= -->
-
+            <!-- ================ TOP Image1 ================= -->
           <div class="col-md-6 col-lg-4 col-xl-3">
             <div class="card text-center card-product">
-              <div class="card-product__img">
 
               {% for imag_top1 in top_model_image1 %}
-              <img class="img-fluid" src="{{ imag_top1.small_image.url }}" alt="">
-              {% endfor %}
+              <div class="card-product__img">
+                <div>
+              <img class="img-fluid" src="{{ imag_top1.artimage.url }}">
 
                 <ul class="card-product__imgOverlay">
                   <li><button><i class="ti-search"></i></button></li>
                   <li><button><i class="ti-shopping-cart"></i></button></li>
                   <li><button><i class="ti-heart"></i></button></li>
                 </ul>
+                </div>
 
               </div>
+                {% endfor %}
 
               {% for imag_top1 in top_model_image1 %}
               <div class="card-body">
                 <p>телефоны</p>
-                <h4 class="card-product__title"><a href="single-product.html">{{imag_top1.title}}</a></h4>
+                <h4 class="card-product__title"><a href="{% url 'product_detail' imag_top1.id %}">{{imag_top1.title}}</a></h4>
                 <p class="card-product__price">{{imag_top1.price}}</p>
               </div>
               {% endfor %}
             </div>
           </div>
+
+                      <!-- ================ TOP Image2 ================= -->
+          <div class="col-md-6 col-lg-4 col-xl-3">
+            <div class="card text-center card-product">
+              <div class="card-product__img">
+
+              {% for imag_top2 in top_model_image2 %}
+              <img class="img-fluid" src="{{ imag_top2.artimage.url }}" alt="">
+              {% endfor %}
+
+
+                <ul class="card-product__imgOverlay">
+                  <li><button><i class="ti-search"></i></button></li>
+                  <li><button><i class="ti-shopping-cart"></i></button></li>
+                  <li><button><i class="ti-heart"></i></button></li>
+                </ul>
+              </div>
+
+              {% for imag_top2 in top_model_image2 %}
+              <div class="card-body">
+                <p>телефоны </p>
+                <h4 class="card-product__title"><a href="{% url 'product_detail' imag_top2.id %}">{{imag_top2.title}}</a></h4>
+                <p class="card-product__price">{{imag_top2.price}}</p>
+              </div>
+              {% endfor %}
+
+            </div>
+          </div>
+
+                      <!-- ================ TOP Image3 ================= -->
+
+          <div class="col-md-6 col-lg-4 col-xl-3">
+            <div class="card text-center card-product">
+              <div class="card-product__img">
+
+              {% for imag_top3 in top_model_image3 %}
+              <img class="img-fluid" src="{{ imag_top3.artimage.url }}" alt="">
+              {% endfor %}
+
+
+                <ul class="card-product__imgOverlay">
+                  <li><button><i class="ti-search"></i></button></li>
+                  <li><button><i class="ti-shopping-cart"></i></button></li>
+                  <li><button><i class="ti-heart"></i></button></li>
+                </ul>
+              </div>
+
+              {% for imag_top3 in top_model_image3 %}
+              <div class="card-body">
+                <p>телефоны </p>
+                <h4 class="card-product__title"><a href="{% url 'product_detail' imag_top3.id %}">{{imag_top3.title}}</a></h4>
+                <p class="card-product__price">{{imag_top3.price}}</p>
+              </div>
+              {% endfor %}
+
+            </div>
+          </div>
+
+                      <!-- ================ TOP Image4 ================= -->
+
+          <div class="col-md-6 col-lg-4 col-xl-3">
+            <div class="card text-center card-product">
+              <div class="card-product__img">
+
+              {% for imag_top4 in top_model_image4 %}
+              <img class="img-fluid" src="{{ imag_top4.artimage.url }}" alt="">
+              {% endfor %}
+
+
+                <ul class="card-product__imgOverlay">
+                  <li><button><i class="ti-search"></i></button></li>
+                  <li><button><i class="ti-shopping-cart"></i></button></li>
+                  <li><button><i class="ti-heart"></i></button></li>
+                </ul>
+              </div>
+
+              {% for imag_top4 in top_model_image4 %}
+              <div class="card-body">
+                <p>телефоны </p>
+                <h4 class="card-product__title"><a href="{% url 'product_detail' imag_top4.id %}">{{imag_top4.title}}</a></h4>
+                <p class="card-product__price">{{imag_top4.price}}</p>
+              </div>
+              {% endfor %}
+
+            </div>
+          </div>
+
+                                <!-- ================ TOP Image5 ================= -->
+
+          <div class="col-md-6 col-lg-4 col-xl-3">
+            <div class="card text-center card-product">
+              <div class="card-product__img">
+
+              {% for imag_top5 in top_model_image5 %}
+              <img class="img-fluid" src="{{ imag_top5.artimage.url }}" alt="">
+              {% endfor %}
+
+
+                <ul class="card-product__imgOverlay">
+                  <li><button><i class="ti-search"></i></button></li>
+                  <li><button><i class="ti-shopping-cart"></i></button></li>
+                  <li><button><i class="ti-heart"></i></button></li>
+                </ul>
+              </div>
+
+              {% for imag_top5 in top_model_image5 %}
+              <div class="card-body">
+                <p>телефоны </p>
+                <h4 class="card-product__title"><a href="% url 'product_detail' imag_top5.id %">{{imag_top5.title}}</a></h4>
+                <p class="card-product__price">{{imag_top5.price}}</p>
+              </div>
+              {% endfor %}
+
+            </div>
+          </div>
+
+                                <!-- ================ TOP Image6 ================= -->
 
           <div class="col-md-6 col-lg-4 col-xl-3">
             <div class="card text-center card-product">
@@ -218,111 +337,73 @@
 
             </div>
           </div>
+
+                                <!-- ================ TOP Image7 ================= -->
+
           <div class="col-md-6 col-lg-4 col-xl-3">
             <div class="card text-center card-product">
               <div class="card-product__img">
-                <img class="card-img" src="img/product/product3.png" alt="">
+
+              {% for imag_top2 in top_model_image2 %}
+              <img class="img-fluid" src="{{ imag_top2.small_image.url }}" alt="">
+              {% endfor %}
+
+
                 <ul class="card-product__imgOverlay">
                   <li><button><i class="ti-search"></i></button></li>
                   <li><button><i class="ti-shopping-cart"></i></button></li>
                   <li><button><i class="ti-heart"></i></button></li>
                 </ul>
               </div>
+
+              {% for imag_top2 in top_model_image2 %}
               <div class="card-body">
-                <p>Decor</p>
-                <h4 class="card-product__title"><a href="single-product.html">Room Flash Light</a></h4>
-                <p class="card-product__price">$150.00</p>
+                <p>телефоны </p>
+                <h4 class="card-product__title"><a href="single-product.html">{{imag_top2.title}}</a></h4>
+                <p class="card-product__price">{{imag_top2.price}}</p>
               </div>
+              {% endfor %}
+
             </div>
           </div>
+
+
+                                <!-- ================ TOP Image8 ================= -->
+
+
           <div class="col-md-6 col-lg-4 col-xl-3">
             <div class="card text-center card-product">
               <div class="card-product__img">
-                <img class="card-img" src="img/product/product4.png" alt="">
+
+              {% for imag_top2 in top_model_image2 %}
+              <img class="img-fluid" src="{{ imag_top2.small_image.url }}" alt="">
+              {% endfor %}
+
+
                 <ul class="card-product__imgOverlay">
                   <li><button><i class="ti-search"></i></button></li>
                   <li><button><i class="ti-shopping-cart"></i></button></li>
                   <li><button><i class="ti-heart"></i></button></li>
                 </ul>
               </div>
+
+              {% for imag_top2 in top_model_image2 %}
               <div class="card-body">
-                <p>Decor</p>
-                <h4 class="card-product__title"><a href="single-product.html">Room Flash Light</a></h4>
-                <p class="card-product__price">$150.00</p>
+                <p>телефоны </p>
+                <h4 class="card-product__title"><a href="single-product.html">{{imag_top2.title}}</a></h4>
+                <p class="card-product__price">{{imag_top2.price}}</p>
               </div>
+              {% endfor %}
+
             </div>
           </div>
-          <div class="col-md-6 col-lg-4 col-xl-3">
-            <div class="card text-center card-product">
-              <div class="card-product__img">
-                <img class="card-img" src="img/product/product5.png" alt="">
-                <ul class="card-product__imgOverlay">
-                  <li><button><i class="ti-search"></i></button></li>
-                  <li><button><i class="ti-shopping-cart"></i></button></li>
-                  <li><button><i class="ti-heart"></i></button></li>
-                </ul>
-              </div>
-              <div class="card-body">
-                <p>Accessories</p>
-                <h4 class="card-product__title"><a href="single-product.html">Man Office Bag</a></h4>
-                <p class="card-product__price">$150.00</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 col-xl-3">
-            <div class="card text-center card-product">
-              <div class="card-product__img">
-                <img class="card-img" src="img/product/product6.png" alt="">
-                <ul class="card-product__imgOverlay">
-                  <li><button><i class="ti-search"></i></button></li>
-                  <li><button><i class="ti-shopping-cart"></i></button></li>
-                  <li><button><i class="ti-heart"></i></button></li>
-                </ul>
-              </div>
-              <div class="card-body">
-                <p>Kids Toy</p>
-                <h4 class="card-product__title"><a href="single-product.html">Charging Car</a></h4>
-                <p class="card-product__price">$150.00</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 col-xl-3">
-            <div class="card text-center card-product">
-              <div class="card-product__img">
-                <img class="card-img" src="img/product/product7.png" alt="">
-                <ul class="card-product__imgOverlay">
-                  <li><button><i class="ti-search"></i></button></li>
-                  <li><button><i class="ti-shopping-cart"></i></button></li>
-                  <li><button><i class="ti-heart"></i></button></li>
-                </ul>
-              </div>
-              <div class="card-body">
-                <p>Accessories</p>
-                <h4 class="card-product__title"><a href="single-product.html">Blutooth Speaker</a></h4>
-                <p class="card-product__price">$150.00</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 col-xl-3">
-            <div class="card text-center card-product">
-              <div class="card-product__img">
-                <img class="card-img" src="img/product/product8.png" alt="">
-                <ul class="card-product__imgOverlay">
-                  <li><button><i class="ti-search"></i></button></li>
-                  <li><button><i class="ti-shopping-cart"></i></button></li>
-                  <li><button><i class="ti-heart"></i></button></li>
-                </ul>
-              </div>
-              <div class="card-body">
-                <p>Kids Toy</p>
-                <h4 class="card-product__title"><a href="#">Charging Car</a></h4>
-                <p class="card-product__price">$150.00</p>
-              </div>
-            </div>
-          </div>
+
+
         </div>
       </div>
     </section>
+
+
     <!-- ================ trending product section end ================= -->  
 
 

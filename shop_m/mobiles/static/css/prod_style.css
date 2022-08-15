@@ -1,4 +1,12 @@
 
+/* ________Контроль размера картинок для топ моделей на главной странице
+находится в файле bootstrap.min.css:6     параметр .img-fluid {...max-width:....___ */
+
+.img_top_models{   /* __жезкие размеры для картинок на index page - картинки топ моделей____ */
+width: 280px;
+height: 400px;
+}
+
 
 /* _____________  Страница отображения продуктов в Product_show  - это DetailView _____________ */
 
@@ -1032,3 +1040,5 @@ padding-top:60px !important;
 padding-bottom:60px !important}
 
 @media (min-width: 1000px){.footer-only{padding-top:115px !important;padding-bottom:115px !important}}
+
+

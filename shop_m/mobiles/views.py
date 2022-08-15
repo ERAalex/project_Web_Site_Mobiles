@@ -14,8 +14,25 @@ def index(request):
 
     top_model_im1 = Top_Models.objects.filter(show_art1=True)
     top_model_im2 = Top_Models.objects.filter(show_art2=True)
-    return render(request, 'index.html', {'image_top': gl_img_verj, 'image_bot': gl_img_niz, 'top_model_image1' : top_model_im1,
-                                          'top_model_image2' : top_model_im2})
+    top_model_im3 = Top_Models.objects.filter(show_art3=True)
+    top_model_im4 = Top_Models.objects.filter(show_art4=True)
+    top_model_im5 = Top_Models.objects.filter(show_art5=True)
+    top_model_im6 = Top_Models.objects.filter(show_art6=True)
+    top_model_im7 = Top_Models.objects.filter(show_art7=True)
+    top_model_im8 = Top_Models.objects.filter(show_art8=True)
+
+    return render(request, 'index.html', {
+        'image_top': gl_img_verj,
+        'image_bot': gl_img_niz,
+        'top_model_image1' : top_model_im1,
+        'top_model_image2' : top_model_im2,
+        'top_model_image3': top_model_im3,
+        'top_model_image4': top_model_im4,
+        'top_model_image5': top_model_im5,
+        'top_model_image6': top_model_im6,
+        'top_model_image7': top_model_im7,
+        'top_model_image8': top_model_im8,
+    })
 
 
 
@@ -44,11 +61,20 @@ def expensive_show(request):
 
 
 ###### вывод каждого товара на отдельной странице через DetailView (если что, подробно все описал в WORD ищи в теории
+###### первый класс для страницы где пагинация и все модели  / второй класс(ниже) для главной страницы Топ модели
 
 class ProductDeatailView(DetailView):
     model = all_products
     template_name = 'product_show.html'
     context_object_name = 'product_see'
+
+
+class ProductDeatailView(DetailView):
+    model = Top_Models
+    template_name = 'product_show.html'
+    context_object_name = 'product_see'
+
+
 ######
 
 ###### Пагинация всех товаров на странице product
