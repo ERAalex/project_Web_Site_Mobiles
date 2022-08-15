@@ -56,6 +56,16 @@ class ProductDeatailView(DetailView):
     context_object_name = 'product_see'
 ######
 
+###### Пагинация всех товаров на странице product
+
+def prod_list(request, page_numb = 1):
+    product_pagin = all_products.objects.all()
+    current_page = Paginator(product_pagin, 3)  # 3 posts in each page
+    return render(request, 'products.html', {'current_page': current_page.page(page_numb)})
+
+######
+
+
 
 def test(request):
     gl_img_verj = main_images.objects.filter(position1=True)

@@ -1,6 +1,5 @@
 from django.db import models
 from PIL import Image
-from embed_video.fields import EmbedVideoField
 from django.utils.text import slugify
 
 

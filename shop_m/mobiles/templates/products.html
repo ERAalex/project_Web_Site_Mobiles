@@ -179,10 +179,14 @@
               <a href="{% url 'prod_expens' %}" class="section-intro__style">Сначало дорогие</a>
 
         </div>
+
+
+
+                      <!-- ================ DJANGO вывод телефонов ================= -->
+
         <div class="show_all_obj">
 
               {% for product in all_products_show %}
-
 
               <div class="card-product__img">
                 <div>
@@ -196,10 +200,34 @@
               </div>
               {% endfor %}
 
-
         </div>
 
 
+           <!-- ================ DJANGO PAGINATION ================= -->
+
+
+    <div class="pagination">
+        <span class="step-links">
+          {% if current_page.has_previous %}
+              <li class="arrow"> <a href="?page={{ current_page.previous_page_number }}">Previous</a></li>
+          {% else %}
+                <li class="arrow unavailable"> <a href="">no page</a></li>
+
+          {% endif %}
+            {% for page in current_page.paginator.page_range %}
+                {% if page == current_page.number %}
+                    <li class="current"> <a href="/page/{{page}}">{{page}}</a></li>
+                {% else %}
+                    <li><a href="/page/{{page}}">{{page}}</a></li>
+                {% endif %}
+            {% endfor %}
+            {% if current_page.has_next %}
+              <li class="arrow"> <a href="/page/{{ current_page.next_page_number }}/">Next</a></li>
+            {% else %}
+              <li class="arrow unavailable"> <a href="">No</a></li>
+            {% endif %}
+       </span>
+    </div>
 
 
 

@@ -1,6 +1,7 @@
 from django.urls import path
 from . import views
 from mobiles.views import products
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 urlpatterns = [
     path('', views.index, name='index'),
@@ -8,8 +9,7 @@ urlpatterns = [
     path('test', views.test, name='test_test'),
     path('registr/', views.register, name='registr'),
     path('products', products, name='products'),
-
-
+    path(r'^page/(\d+)/$', views.prod_list, name='prod_pagination'),
 
 # блок ссылок и вьюшек для вывода конкретных моделей внутри шаблона products
     path('apple', views.apple_show, name='apple'),
