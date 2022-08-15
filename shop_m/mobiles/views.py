@@ -18,11 +18,6 @@ def index(request):
                                           'top_model_image2' : top_model_im2})
 
 
-def products(request):
-    all_products_show = all_products.objects.all()
-    return render(request, 'products.html', {'all_products_show': all_products_show})
-
-
 
 ###### блок ссылок и вьюшек для вывода конкретных моделей внутри шаблона products
 
@@ -58,10 +53,22 @@ class ProductDeatailView(DetailView):
 
 ###### Пагинация всех товаров на странице product
 
-def prod_list(request, page_numb = 1):
-    product_pagin = all_products.objects.all()
-    current_page = Paginator(product_pagin, 3)  # 3 posts in each page
-    return render(request, 'products.html', {'current_page': current_page.page(page_numb)})
+def prod_pag_page(request):
+    pag_prod = all_products.objects.all()
+    if 'page' in request.GET:
+        page = request.GET['page']
+    else:
+        page = 1
+    paginator = Paginator(pag_prod, 3)
+    try:
+        pag_prod = paginator.page(page)
+    except PageNotAnInteger:
+        pag_prod = paginator.page(1)
+    except EmptyPage:
+        pag_prod = paginator.page(paginator.num_pages)
+
+    context = {'pag_prod': pag_prod}
+    return render(request, "products.html", context)
 
 ######
 

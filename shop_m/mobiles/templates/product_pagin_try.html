@@ -182,44 +182,14 @@
 
 
 
-                      <!-- ================ DJANGO вывод телефонов по марке - Apple,Samsung... ================= -->
-        <div class="show_all_obj">
-          {% for product in all_products_show %}
+                      <!-- ================ DJANGO вывод телефонов ================= -->
 
-              <div class="card-product__img">
-                <div>
-                  <p>телефоны</p>
-                    <img class="img_all_prod" src="{{ product.small_image.url }}">
 
-                  <h4 class="card-product__title"><a href="{% url 'product_detail' product.id %}">{{ product.title }}</a></h4>
+           <!-- ================ DJANGO PAGINATION ================= -->
 
-                  <p class="card-product__price">{{ product.price }}</p>
-                </div>
-              </div>
-          {% endfor %}
-        </div>
-
-                    <!-- ================ DJANGO PAGINATION ================= -->
-
-        <div class="show_all_obj">
-
-              {% for product in pag_prod %}
-
-              <div class="card-product__img">
-                <div>
-                  <p>телефоны</p>
-                    <img class="img_all_prod" src="{{ product.small_image.url }}">
-
-                  <h4 class="card-product__title"><a href="{% url 'product_detail' product.id %}">{{ product.title }}</a></h4>
-
-                  <p class="card-product__price">{{ product.price }}</p>
-                </div>
-              </div>
-              {% endfor %}
-
-        </div>
-
-           <!-- ================ DJANGO PAGINATION scroll ================= -->
+    {% for item in pag_prod %}
+          {{item.title}}
+    {% endfor %}
 
     {% if pag_prod.has_other_pages %}
     <nav id="pagination" class="col align-self-center" aria-label="Page navigation example">
@@ -246,7 +216,7 @@
         </ul>
     </nav>
     {% endif %}
-           <!-- ================ DJANGO PAGINATION ================= -->
+
 
 
 
