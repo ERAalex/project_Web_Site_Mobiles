@@ -69,11 +69,10 @@ class ProductDeatailView(DetailView):
     context_object_name = 'product_see'
 
 
-class ProductDeatailView(DetailView):
+class ProductTopDeatailView(DetailView):
     model = Top_Models
-    template_name = 'product_show.html'
-    context_object_name = 'product_see'
-
+    template_name = 'product_show_top.html'
+    context_object_name = 'product_see_top'
 
 ######
 

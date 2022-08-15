@@ -179,76 +179,34 @@
 
         </div>
 
+                                    <!--Django вставка данных  -->
 
 
-                      <!-- ================ DJANGO вывод телефонов по марке - Apple,Samsung... ================= -->
-        <div class="show_all_obj">
-          {% for product in all_products_show %}
+        <div class="Detailprod">
 
-              <div class="card-product__img">
-                <div>
-                  <p>телефоны</p>
-                    <img class="img_all_prod" src="{{ product.small_image.url }}">
+            <div class="Detail_left_for_img">
+                <img class="img_prod_show" src="{{ product_see_top.artimage.url }}">
+                <p></p>
+                <p></p>
+                <h4 class="card-product__title">{{ product_see_top.title }}</h4>
+            </div>
 
-                  <h4 class="card-product__title"><a href="{% url 'product_detail' product.id %}">{{ product.title }}</a></h4>
+            <div class="Detail_right_for_text">
+                {{ product_see_top.full_text }}
+                <p></p>
+                <p></p>
+                <p class="card-product__price">{{ product_see_top.price }}</p>
+            </div>
 
-                  <p class="card-product__price">{{ product.price }}</p>
-                </div>
-              </div>
-          {% endfor %}
         </div>
-
-                    <!-- ================ DJANGO PAGINATION ================= -->
-
-        <div class="show_all_obj">
-
-              {% for product in pag_prod %}
-
-              <div class="card-product__img">
-                <div>
-                  <p>телефоны</p>
-                    <img class="img_all_prod" src="{{ product.artimage.url }}">
-
-                  <h4 class="card-product__title"><a href="{% url 'product_detail' product.id %}">{{ product.title }}</a></h4>
-
-                  <p class="card-product__price">{{ product.price }}</p>
-                </div>
-              </div>
-              {% endfor %}
+      </div>
 
         </div>
 
-           <!-- ================ DJANGO PAGINATION scroll ================= -->
 
-    {% if pag_prod.has_other_pages %}
-        <div class="container_pagin">
-            <nav id="pagination" class="col align-self-center" aria-label="Page navigation example">
-                <ul class="pagination">
-                {% if pag_prod.has_previous %}
-                    <li class="page-item"><a class="page-link" href="?page={{ pag_prod.previous_page_number }}">&laquo;</a></li>
-                {% else %}
-                <li class="page-item disabled"><span class="page-link" href="#" tabindex="-1" aria-disabled="true">&laquo;</span></li>
-                {% endif %}
-                {% for i in pag_prod.paginator.page_range %}
-                    {% if i > pag_prod.number|add:-4 and i < pag_prod.number|add:4 %}
-                        {% if pag_prod.number == i %}
-                            <li class="page-item active" aria-current="page"><a class="page-link" href="#">{{ i }} <span class="sr-only">(current)</span></a></li>
-                        {% else %}
-                            <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
-                        {% endif %}
-                    {% endif %}
-                {% endfor %}
-                {% if pag_prod.has_next %}
-                    <li class="page-item"><a class="page-link" href="?page={{ pag_prod.next_page_number }}">&raquo;</a></li>
-                {% else %}
-                <li class="page-item disabled"><span class="page-link" href="#" tabindex="-1" aria-disabled="true">&raquo;</span></li>
-                {% endif %}
-                </ul>
-            </nav>
+
+
         </div>
-    {% endif %}
-           <!-- ================ DJANGO PAGINATION ================= -->
-
 
 
 

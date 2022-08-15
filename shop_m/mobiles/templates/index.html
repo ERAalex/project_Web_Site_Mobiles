@@ -77,7 +77,6 @@
 
 
                   <li class="nav-item"><a class="nav-link" href="{% url 'registr' %}">Регистрация</a></li>
-                  <li class="nav-item"><a class="nav-link" href="tracking-order.html">Отслеживание</a></li>
                 </ul>
               </li>
 
@@ -187,7 +186,7 @@
               {% for imag_top1 in top_model_image1 %}
               <div class="card-body">
                 <p>телефоны</p>
-                <h4 class="card-product__title"><a href="{% url 'product_detail' imag_top1.id %}">{{imag_top1.title}}</a></h4>
+                <h4 class="card-product__title"><a href="{% url 'product_detail_top' imag_top1.id %}">{{imag_top1.title}}</a></h4>
                 <p class="card-product__price">{{imag_top1.price}}</p>
               </div>
               {% endfor %}
@@ -214,7 +213,7 @@
               {% for imag_top2 in top_model_image2 %}
               <div class="card-body">
                 <p>телефоны </p>
-                <h4 class="card-product__title"><a href="{% url 'product_detail' imag_top2.id %}">{{imag_top2.title}}</a></h4>
+                <h4 class="card-product__title"><a href="{% url 'product_detail_top' imag_top2.id %}">{{imag_top2.title}}</a></h4>
                 <p class="card-product__price">{{imag_top2.price}}</p>
               </div>
               {% endfor %}
@@ -243,7 +242,7 @@
               {% for imag_top3 in top_model_image3 %}
               <div class="card-body">
                 <p>телефоны </p>
-                <h4 class="card-product__title"><a href="{% url 'product_detail' imag_top3.id %}">{{imag_top3.title}}</a></h4>
+                <h4 class="card-product__title"><a href="{% url 'product_detail_top' imag_top3.id %}">{{imag_top3.title}}</a></h4>
                 <p class="card-product__price">{{imag_top3.price}}</p>
               </div>
               {% endfor %}
@@ -272,7 +271,7 @@
               {% for imag_top4 in top_model_image4 %}
               <div class="card-body">
                 <p>телефоны </p>
-                <h4 class="card-product__title"><a href="{% url 'product_detail' imag_top4.id %}">{{imag_top4.title}}</a></h4>
+                <h4 class="card-product__title"><a href="{% url 'product_detail_top' imag_top4.id %}">{{imag_top4.title}}</a></h4>
                 <p class="card-product__price">{{imag_top4.price}}</p>
               </div>
               {% endfor %}
@@ -301,7 +300,7 @@
               {% for imag_top5 in top_model_image5 %}
               <div class="card-body">
                 <p>телефоны </p>
-                <h4 class="card-product__title"><a href="% url 'product_detail' imag_top5.id %">{{imag_top5.title}}</a></h4>
+                <h4 class="card-product__title"><a href="{% url 'product_detail_top' imag_top5.id %}">{{imag_top5.title}}</a></h4>
                 <p class="card-product__price">{{imag_top5.price}}</p>
               </div>
               {% endfor %}
@@ -315,8 +314,8 @@
             <div class="card text-center card-product">
               <div class="card-product__img">
 
-              {% for imag_top2 in top_model_image2 %}
-              <img class="img-fluid" src="{{ imag_top2.small_image.url }}" alt="">
+              {% for imag_top6 in top_model_image6 %}
+              <img class="img-fluid" src="{{ imag_top6.artimage.url }}" alt="">
               {% endfor %}
 
 
@@ -327,11 +326,11 @@
                 </ul>
               </div>
 
-              {% for imag_top2 in top_model_image2 %}
+              {% for imag_top6 in top_model_image6 %}
               <div class="card-body">
                 <p>телефоны </p>
-                <h4 class="card-product__title"><a href="single-product.html">{{imag_top2.title}}</a></h4>
-                <p class="card-product__price">{{imag_top2.price}}</p>
+                <h4 class="card-product__title"><a href="{% url 'product_detail_top' imag_top6.id %}">{{imag_top6.title}}</a></h4>
+                <p class="card-product__price">{{imag_top6.price}}</p>
               </div>
               {% endfor %}
 
@@ -344,8 +343,8 @@
             <div class="card text-center card-product">
               <div class="card-product__img">
 
-              {% for imag_top2 in top_model_image2 %}
-              <img class="img-fluid" src="{{ imag_top2.small_image.url }}" alt="">
+              {% for imag_top7 in top_model_image7 %}
+              <img class="img-fluid" src="{{ imag_top7.artimage.url }}" alt="">
               {% endfor %}
 
 
@@ -356,11 +355,11 @@
                 </ul>
               </div>
 
-              {% for imag_top2 in top_model_image2 %}
+              {% for imag_top7 in top_model_image7 %}
               <div class="card-body">
                 <p>телефоны </p>
-                <h4 class="card-product__title"><a href="single-product.html">{{imag_top2.title}}</a></h4>
-                <p class="card-product__price">{{imag_top2.price}}</p>
+                <h4 class="card-product__title"><a href="{% url 'product_detail_top' imag_top7.id %}">{{imag_top7.title}}</a></h4>
+                <p class="card-product__price">{{imag_top7.price}}</p>
               </div>
               {% endfor %}
 
@@ -375,8 +374,8 @@
             <div class="card text-center card-product">
               <div class="card-product__img">
 
-              {% for imag_top2 in top_model_image2 %}
-              <img class="img-fluid" src="{{ imag_top2.small_image.url }}" alt="">
+              {% for imag_top8 in top_model_image8 %}
+              <img class="img-fluid" src="{{ imag_top8.artimage.url }}" alt="">
               {% endfor %}
 
 
@@ -387,11 +386,11 @@
                 </ul>
               </div>
 
-              {% for imag_top2 in top_model_image2 %}
+              {% for imag_top8 in top_model_image8 %}
               <div class="card-body">
                 <p>телефоны </p>
-                <h4 class="card-product__title"><a href="single-product.html">{{imag_top2.title}}</a></h4>
-                <p class="card-product__price">{{imag_top2.price}}</p>
+                <h4 class="card-product__title"><a href="{% url 'product_detail_top' imag_top8.id %}">{{imag_top8.title}}</a></h4>
+                <p class="card-product__price">{{imag_top8.price}}</p>
               </div>
               {% endfor %}
 
