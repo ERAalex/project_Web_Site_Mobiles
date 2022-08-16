@@ -14,18 +14,28 @@ class all_products(models.Model):
     small_image = models.ImageField(null=True, blank=True, upload_to='static/img/top_models', verbose_name='Мини-изображение')
     artimage = models.ImageField(null=True, blank=True, upload_to='static/img/top_models', verbose_name=' основное изображение')
 
-    discount = models.IntegerField(default=0, verbose_name='Скидка')
+    discount_active = models.BooleanField('Есть скидка?', default=False)
+    discount = models.IntegerField(default=0, null=True, blank=True, verbose_name='Скидка')
 
+    show_item = models.BooleanField('Наличие товара', default=False)
 
-    show_item = models.BooleanField('Показать', default=False)
     show_apple = models.BooleanField('Apple', default=False)
     show_samsung = models.BooleanField('Samsung', default=False)
     show_huawei = models.BooleanField('Huawei', default=False)
+    show_honor = models.BooleanField('Honor', default=False)
     slug = models.SlugField(blank=True)
 
 # скидка
     def get_final_price(self):
-        return (self.price - (self.price * self.discount)/100)
+        if self.discount == 0:      # если скидки нет (то не идем дальше)
+            s = "."
+            return s     # заглушка, иначе css сдвигает колонки с фото, не ровно.
+        else:
+            total = self.price - (self.price * self.discount)/100
+            return (f'Скидка {self.discount}%! {round(total)}')  # round - убираем нули после запятой
+
+
+
 
 # авто сохранение поля слаг = по полю title
     def save(self, *args, **kwargs):

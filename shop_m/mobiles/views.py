@@ -50,6 +50,10 @@ def huawei_show(request):
     all_products_show = all_products.objects.filter(show_huawei=True)
     return render(request, 'products.html', {'all_products_show': all_products_show})
 
+def honor_show(request):
+    all_products_show = all_products.objects.filter(show_honor=True)
+    return render(request, 'products.html', {'all_products_show': all_products_show})
+
 def chip_show(request):
     all_products_show = all_products.objects.all().order_by('price')
     return render(request, 'products.html', {'all_products_show': all_products_show})
@@ -57,6 +61,11 @@ def chip_show(request):
 def expensive_show(request):
     all_products_show = all_products.objects.all().order_by('price').reverse()
     return render(request, 'products.html', {'all_products_show': all_products_show})
+
+def discount_show(request):
+    discount_products = all_products.objects.all().filter(discount_active=True)
+    return render(request, 'product_show.html', {'discount_products': discount_products})
+
 ######
 
 

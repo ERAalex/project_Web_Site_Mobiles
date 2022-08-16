@@ -45,7 +45,6 @@
                 <ul class="dropdown-menu">
                   <li class="nav-item"><a class="nav-link" href="{% url 'products' %}">Продукты</a></li>
                   <li class="nav-item"><a class="nav-link" href="single-product.html">Наличие</a></li>
-                  <li class="nav-item"><a class="nav-link" href="confirmation.html">Подтверждение</a></li>
                   <li class="nav-item"><a class="nav-link" href="cart.html">Документы</a></li>
                 </ul>
               </li>
@@ -173,6 +172,8 @@
             -
               <a href="{% url 'huawei' %}" class="section-intro__style">Huawei</a>
             -
+              <a href="{% url 'honor' %}" class="section-intro__style">Honor</a>
+            -
               <a href="{% url 'prod_chip' %}" class="section-intro__style">Сначало недорогие</a>
             -
               <a href="{% url 'prod_expens' %}" class="section-intro__style">Сначало дорогие</a>
@@ -186,15 +187,16 @@
           {% for product in all_products_show %}
 
               <div class="card-product__img">
-                <div>
+
                   <p>телефоны</p>
                     <img class="img_all_prod" src="{{ product.small_image.url }}">
 
                   <h4 class="card-product__title"><a href="{% url 'product_detail' product.id %}">{{ product.title }}</a></h4>
 
                   <p class="card-product__price">{{ product.price }}</p>
-                  <p class="card-product__price">{{ product.get_final_price }}</p>
-                </div>
+                  <p class="card-product__price"><font size="3" color="#fa8e47">{{ product.get_final_price|default_if_none:""  }}</font></p>
+    <!-- =если пусто в значении, то будет показывать NONE, чтобы вообще ничего не показыват ставим код выше= default... -->
+
               </div>
           {% endfor %}
         </div>
@@ -213,8 +215,8 @@
                   <h4 class="card-product__title"><a href="{% url 'product_detail' product.id %}">{{ product.title }}</a></h4>
 
                   <p class="card-product__price">{{ product.price }}</p>
-                  <p class="card-product__price">{{ product.get_final_price }}</p>
-
+                  <p class="card-product__price"><font size="3" color="#fa8e47">{{ product.get_final_price|default_if_none:""  }}</font></p>
+                                        <!-- =если пусто в значении, то будет показывать NONE, чтобы вообще ничего не показыват ставим код выше= -->
                 </div>
               </div>
               {% endfor %}

@@ -45,7 +45,6 @@
                 <ul class="dropdown-menu">
                   <li class="nav-item"><a class="nav-link" href="{% url 'products' %}">Продукты</a></li>
                   <li class="nav-item"><a class="nav-link" href="single-product.html">Наличие</a></li>
-                  <li class="nav-item"><a class="nav-link" href="confirmation.html">Подтверждение</a></li>
                   <li class="nav-item"><a class="nav-link" href="cart.html">Документы</a></li>
                 </ul>
               </li>
@@ -181,11 +180,36 @@
 
                                     <!--Django вставка данных  -->
 
+          {% for product in discount_products %}
+        <div class="show_all_obj">
+
+              <div class="card-product__img">
+
+                  <p>телефоны</p>
+                    <img class="img_all_prod" src="{{ product.small_image.url }}">
+
+                  <h4 class="card-product__title"><a href="{% url 'product_detail' product.id %}">{{ product.title }}</a></h4>
+
+                  <p class="card-product__price">{{ product.price }}</p>
+                  <p class="card-product__price"><font size="3" color="#fa8e47">{{ product.get_final_price|default_if_none:""  }}</font></p>
+    <!-- =если пусто в значении, то будет показывать NONE, чтобы вообще ничего не показыват ставим код выше= default... -->
+              </div>
+        </div>
+          {% endfor %}
+
+
+
+
 
         <div class="Detailprod">
 
             <div class="Detail_left_for_img">
+                 <!-- ставим условие, иначе отображается пустая картинка, когда выводим модели со скидками по коду выше -->
+                {% if product_see.artimage.url %}
+
                 <img class="img_prod_show" src="{{ product_see.artimage.url }}">
+                {% endif %}
+
                 <p></p>
                 <p></p>
                 <h4 class="card-product__title">{{ product_see.title }}</h4>
@@ -196,6 +220,9 @@
                 <p></p>
                 <p></p>
                 <p class="card-product__price">{{ product_see.price }}</p>
+                <p class="card-product__price"><font size="4" color="#fa8e47">{{ product_see.get_final_price|default_if_none:""  }}</font></p>
+                                        <!-- =если пусто в значении, то будет показывать NONE, чтобы вообще ничего не показыват ставим код выше= -->
+
             </div>
 
         </div>

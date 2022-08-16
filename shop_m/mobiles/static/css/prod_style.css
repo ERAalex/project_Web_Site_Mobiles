@@ -52,11 +52,16 @@ margin-top: 250px;  /* слегка отдаляем вниз цифры про�
 
 .show_all_obj{
 background: white;
+display: block;
+margin: 0 15px 15px 0;
+text-align:center;   /* _____располагаем все мобильники по центру экрана__ */
+
 }
 
 .img_all_prod{    /* ___задаем жесткие размеры для картинки, чтобы не зависеть от ее размера_____ */
 width: 80px;
 height: 100px;
+margin-top: 10px;
 }
 
 
@@ -607,17 +612,21 @@ margin-bottom:10px}
 
 .card-product{
 border:0;
-margin-bottom:30px}
+margin-bottom: 30px
+}
 
 .card-product p{
-margin-bottom:0}
+margin-bottom:0
+}
 
 .card-product__img{
-background:white;  /* --Фон задний у карты продукта   */
+background: white;  /* --Фон задний у карты продукта   */
 display: inline-block;
-width: 200px;
+width: 300px;
+height: 300px;
 padding: 20px;
-position:relative}
+position:relative
+}
 
 .card-product__imgOverlay{
 background:rgba(255,255,255,0.5);
