@@ -214,7 +214,8 @@
 
                   <h4 class="card-product__title"><a href="{% url 'product_detail' product.id %}">{{ product.title }}</a></h4>
 
-                  <p class="card-product__price">{{ product.price }}</p>
+                    <p class="card-product__price">{{ product.price }}</p>
+
                   <p class="card-product__price"><font size="3" color="#fa8e47">{{ product.get_final_price|default_if_none:""  }}</font></p>
                                         <!-- =если пусто в значении, то будет показывать NONE, чтобы вообще ничего не показыват ставим код выше= -->
                 </div>
