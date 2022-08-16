@@ -193,6 +193,7 @@
                   <h4 class="card-product__title"><a href="{% url 'product_detail' product.id %}">{{ product.title }}</a></h4>
 
                   <p class="card-product__price">{{ product.price }}</p>
+                  <p class="card-product__price">{{ product.get_final_price }}</p>
                 </div>
               </div>
           {% endfor %}
@@ -212,6 +213,8 @@
                   <h4 class="card-product__title"><a href="{% url 'product_detail' product.id %}">{{ product.title }}</a></h4>
 
                   <p class="card-product__price">{{ product.price }}</p>
+                  <p class="card-product__price">{{ product.get_final_price }}</p>
+
                 </div>
               </div>
               {% endfor %}

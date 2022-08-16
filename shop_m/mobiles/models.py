@@ -8,16 +8,24 @@ from django.utils.text import slugify
 class all_products(models.Model):
     id = models.AutoField(primary_key=True, unique=True)
     title = models.CharField('Название модели', max_length=50)
-    price = models.CharField('Стоимость модели', null=True, max_length=50)
+    price = models.IntegerField(default=0, verbose_name='Цена')
     full_text = models.TextField('описание')
     date = models.DateTimeField('Дата публикации')
     small_image = models.ImageField(null=True, blank=True, upload_to='static/img/top_models', verbose_name='Мини-изображение')
     artimage = models.ImageField(null=True, blank=True, upload_to='static/img/top_models', verbose_name=' основное изображение')
+
+    discount = models.IntegerField(default=0, verbose_name='Скидка')
+
+
     show_item = models.BooleanField('Показать', default=False)
     show_apple = models.BooleanField('Apple', default=False)
     show_samsung = models.BooleanField('Samsung', default=False)
     show_huawei = models.BooleanField('Huawei', default=False)
     slug = models.SlugField(blank=True)
+
+# скидка
+    def get_final_price(self):
+        return (self.price - (self.price * self.discount)/100)
 
 # авто сохранение поля слаг = по полю title
     def save(self, *args, **kwargs):
