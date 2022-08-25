@@ -1,7 +1,5 @@
 from django.contrib import admin
-from .models import Top_Models
-from .models import main_images
-from .models import all_products
+from .models import Top_Models, main_images, all_products
 from django.utils.safestring import mark_safe
 
 
@@ -16,9 +14,10 @@ class all_productAdmin(admin.ModelAdmin):
     list_filter = ['show_item', 'price']
     list_editable = ['price', 'discount_active', 'discount']
 
+# делаем так, чтобы отображались картинки в admin вместо просто ссылки на картинку, url
     def image_show(self, obj):
         if obj.artimage:
-            return mark_safe("<img src='{}' width='60' />".format(obj.artimage.url))
+            return mark_safe("<img src='{}' width='60' />".format(obj.artimage.url)) # безопасный метод возврата строки, импортировали выше
         return "Нет картинки"
 
     image_show.__name__ = "Картинка"
