@@ -21,7 +21,7 @@ class Cart(object):
     def __iter__(self):
         products_ids = self.cart.keys()
         # получаем товары и добавляем их в корзину
-        products = all_products.object.filter(id__in=products_ids)
+        products = all_products.objects.filter(id__in=products_ids)
 
         cart = self.cart.copy()
         for product in products:

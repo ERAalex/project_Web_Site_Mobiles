@@ -1,10 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
 from django.core.paginator import Paginator
 from .models import main_images
 from .models import Top_Models
 from .models import all_products
 from .forms import LoginForm, UserRegistrationForm
 from django.views.generic import DetailView
+from cart.forms import CartAddProductForm
 
 
 
@@ -37,10 +38,12 @@ def index(request):
 
 
 ###### блок ссылок и вьюшек для вывода конкретных моделей внутри шаблона products
-
+#
 def apple_show(request):
     all_products_show = all_products.objects.filter(show_apple=True)
     return render(request, 'products.html', {'all_products_show': all_products_show})
+
+
 
 def samsung_show(request):
     all_products_show = all_products.objects.filter(show_samsung=True)
@@ -71,6 +74,17 @@ def discount_show(request):
 
 ###### вывод каждого товара на отдельной странице через DetailView (если что, подробно все описал в WORD ищи в теории
 ###### первый класс для страницы где пагинация и все модели  / второй класс(ниже) для главной страницы Топ модели
+
+
+# Для корзины.
+def product_detail(request, id, slug):
+    product = get_object_or_404(all_products, id=id, show_item=True)
+    cart_product_form = CartAddProductForm()
+    # путь до другого шаблона (не cart)
+    return render(request, 'shop_m/product/detail.html', {'all_products_show': all_products_show, 'cart_product_form': cart_product_form})
+
+
+
 
 class ProductDeatailView(DetailView):
     model = all_products
