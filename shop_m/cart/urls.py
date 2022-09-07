@@ -1,14 +1,10 @@
-from django.urls import path
+from django.urls import include, re_path
 from . import views
-
 app_name = 'cart'
 
 
 urlpatterns = [
-    # адрес полностью всей корзины
-    path('', views.cart_detail, name='cart_detail'),
-    # добавление корзины
-    path('add/<int:product_id>/', views.cart_add, name='cart_add'),
-    path('remove/<int:product_id>/', views.cart_remove, name='cart_remove'),
-
+    re_path(r'^$', views.cart_detail, name='cart_detail'),
+    re_path(r'^add/(?P<product_id>\d+)/$', views.cart_add, name='cart_add'),
+    re_path(r'^remove/(?P<product_id>\d+)/$', views.cart_remove, name='cart_remove'),
 ]

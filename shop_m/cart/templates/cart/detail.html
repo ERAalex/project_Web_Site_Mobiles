@@ -183,12 +183,12 @@
                 </thead>
 
                 <tbody>
-                    {% for iten in cart %}
+                    {% for item in cart %}
                         {% with product=item.product %}
                             <tr>
                                 <td>
                                     <!-- если корзина не пустая отображаем картинку -->
-                                    <a href="{{ product.get_absolute_url}} ">
+                                    <a href="{{ product.get_absolute_url}}">
                                         <img src="{% if product.image %} {{product.image.url}} {% else %} {% static 'img/cart.jpg' %} {% endif %}">
                                     </a>
                                 </td>
@@ -228,7 +228,7 @@
             </table>
 
             <p class="text-right">
-                <a href="{% url 'shop:product_list' %}" class="button light">В магазин</a>
+                <a href="{% url 'start' %}" class="button light">В магазин</a>
                 <a href="#" class="button">Оформить заказ</a>
             </p>
 

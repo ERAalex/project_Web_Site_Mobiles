@@ -70,6 +70,7 @@ class Top_Models(models.Model):
     show_art7 = models.BooleanField('Показать на 7 позици', default=False)
     show_art8 = models.BooleanField('Показать на 8 позици', default=False)
 
+
     def __str__(self):
         return self.title
 

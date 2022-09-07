@@ -22,6 +22,9 @@ def index(request):
     top_model_im7 = Top_Models.objects.filter(show_art7=True)
     top_model_im8 = Top_Models.objects.filter(show_art8=True)
 
+    cart_product_form = CartAddProductForm()
+
+
     return render(request, 'index.html', {
         'image_top': gl_img_verj,
         'image_bot': gl_img_niz,
@@ -33,6 +36,7 @@ def index(request):
         'top_model_image6': top_model_im6,
         'top_model_image7': top_model_im7,
         'top_model_image8': top_model_im8,
+        'cart_product_form': cart_product_form,
     })
 
 
@@ -77,11 +81,11 @@ def discount_show(request):
 
 
 # Для корзины.
-def product_detail(request, id, slug):
+def product_detail(request, id):
     product = get_object_or_404(all_products, id=id, show_item=True)
     cart_product_form = CartAddProductForm()
     # путь до другого шаблона (не cart)
-    return render(request, 'shop_m/product/detail.html', {'all_products_show': all_products_show, 'cart_product_form': cart_product_form})
+    return render(request, 'shop_m/product/detail.html', {'product': product, 'cart_product_form': cart_product_form})
 
 
 
@@ -92,10 +96,18 @@ class ProductDeatailView(DetailView):
     context_object_name = 'product_see'
 
 
+
+
+
+
+
+
 class ProductTopDeatailView(DetailView):
     model = Top_Models
     template_name = 'product_show_top.html'
     context_object_name = 'product_see_top'
+
+
 
 ######
 
@@ -115,7 +127,9 @@ def prod_pag_page(request):
     except EmptyPage:
         pag_prod = paginator.page(paginator.num_pages)
 
-    context = {'pag_prod': pag_prod}
+    cart_product_form = CartAddProductForm()
+
+    context = {'pag_prod': pag_prod, 'cart_product_form': cart_product_form}
     return render(request, "products.html", context)
 
 ######

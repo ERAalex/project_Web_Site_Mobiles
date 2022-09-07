@@ -187,6 +187,18 @@
                 <p>телефоны</p>
                 <h4 class="card-product__title"><a href="{% url 'product_detail_top' imag_top1.id %}">{{imag_top1.title}}</a></h4>
                 <p class="card-product__price">{{imag_top1.price}}</p>
+
+
+                <!-- ================ часть кода с возможностью загрузить товар в корзину ================= -->
+
+                <form action="{% url 'cart:cart_add' imag_top1.id %}" method="post">
+                  {{ cart_product_form }}
+                  {% csrf_token %}
+                  <input type="submit" value="в корзину">
+                </form>
+                    <!-- ================ часть кода с возможностью загрузить товар в корзину ================= -->
+
+
               </div>
               {% endfor %}
             </div>
