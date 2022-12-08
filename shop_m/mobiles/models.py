@@ -4,7 +4,6 @@ from django.utils.text import slugify
 
 
 
-
 class all_products(models.Model):
     id = models.AutoField(primary_key=True, unique=True)
     title = models.CharField('Название модели', max_length=50)
