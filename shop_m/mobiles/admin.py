@@ -1,12 +1,10 @@
 from django.contrib import admin
-from .models import Top_Models, main_images, all_products
+from .models import main_images, all_products
 from django.utils.safestring import mark_safe
 
 
 
-class ArticlesAdmin(admin.ModelAdmin):
-    readonly_fields = ('id',)
-    list_display = ('title', 'id',)
+
 
 @admin.register(all_products)
 class all_productAdmin(admin.ModelAdmin):
@@ -23,7 +21,5 @@ class all_productAdmin(admin.ModelAdmin):
     image_show.__name__ = "Картинка"
 
 
-
-admin.site.register(Top_Models, ArticlesAdmin)
-admin.site.register(main_images, ArticlesAdmin)
+admin.site.register(main_images)
 

@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.core.paginator import Paginator
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from .models import main_images
-from .models import Top_Models
 from .models import all_products
 from .forms import LoginForm, UserRegistrationForm
 from django.views.generic import DetailView
@@ -10,74 +9,55 @@ from cart.forms import CartAddProductForm
 
 
 def index(request):
+
+    all_result = all_products.objects.filter(show_on_main_page=True)
     gl_img_verj = main_images.objects.filter(position1=True)
     gl_img_niz = main_images.objects.filter(position2=True)
 
-    top_model_im1 = Top_Models.objects.filter(show_art1=True)
-    top_model_im2 = Top_Models.objects.filter(show_art2=True)
-    top_model_im3 = Top_Models.objects.filter(show_art3=True)
-    top_model_im4 = Top_Models.objects.filter(show_art4=True)
-    top_model_im5 = Top_Models.objects.filter(show_art5=True)
-    top_model_im6 = Top_Models.objects.filter(show_art6=True)
-    top_model_im7 = Top_Models.objects.filter(show_art7=True)
-    top_model_im8 = Top_Models.objects.filter(show_art8=True)
-
     cart_product_form = CartAddProductForm()
 
-
     return render(request, 'index.html', {
+        'all_result': all_result,
         'image_top': gl_img_verj,
         'image_bot': gl_img_niz,
-        'top_model_image1' : top_model_im1,
-        'top_model_image2' : top_model_im2,
-        'top_model_image3': top_model_im3,
-        'top_model_image4': top_model_im4,
-        'top_model_image5': top_model_im5,
-        'top_model_image6': top_model_im6,
-        'top_model_image7': top_model_im7,
-        'top_model_image8': top_model_im8,
         'cart_product_form': cart_product_form,
     })
 
 
 
-###### блок ссылок и вьюшек для вывода конкретных моделей внутри шаблона products
-#
 def apple_show(request):
     all_products_show = all_products.objects.filter(show_apple=True)
     return render(request, 'products.html', {'all_products_show': all_products_show})
-
 
 
 def samsung_show(request):
     all_products_show = all_products.objects.filter(show_samsung=True)
     return render(request, 'products.html', {'all_products_show': all_products_show})
 
+
 def huawei_show(request):
     all_products_show = all_products.objects.filter(show_huawei=True)
     return render(request, 'products.html', {'all_products_show': all_products_show})
+
 
 def honor_show(request):
     all_products_show = all_products.objects.filter(show_honor=True)
     return render(request, 'products.html', {'all_products_show': all_products_show})
 
+
 def chip_show(request):
     all_products_show = all_products.objects.all().order_by('price')
     return render(request, 'products.html', {'all_products_show': all_products_show})
+
 
 def expensive_show(request):
     all_products_show = all_products.objects.all().order_by('price').reverse()
     return render(request, 'products.html', {'all_products_show': all_products_show})
 
+
 def discount_show(request):
     discount_products = all_products.objects.all().filter(discount_active=True)
     return render(request, 'product_show.html', {'discount_products': discount_products})
-
-######
-
-
-###### вывод каждого товара на отдельной странице через DetailView (если что, подробно все описал в WORD ищи в теории
-###### первый класс для страницы где пагинация и все модели  / второй класс(ниже) для главной страницы Топ модели
 
 
 # Для корзины.
@@ -86,8 +66,7 @@ def product_detail(request, id):
     cart_product_form = CartAddProductForm()
     # путь до другого шаблона (не cart)
     return render(request, 'shop_m/product/detail.html', {'product': product, 'cart_product_form': cart_product_form})
-
-
+#
 
 
 class ProductDeatailView(DetailView):
@@ -96,23 +75,7 @@ class ProductDeatailView(DetailView):
     context_object_name = 'product_see'
 
 
-
-
-
-
-
-
-class ProductTopDeatailView(DetailView):
-    model = Top_Models
-    template_name = 'product_show_top.html'
-    context_object_name = 'product_see_top'
-
-
-
-######
-
-###### Пагинация всех товаров на странице product
-
+# Пагинация всех товаров на странице product
 def prod_pag_page(request):
     pag_prod = all_products.objects.all()
     if 'page' in request.GET:
@@ -132,21 +95,15 @@ def prod_pag_page(request):
     context = {'pag_prod': pag_prod, 'cart_product_form': cart_product_form}
     return render(request, "products.html", context)
 
-######
-
-
 
 def test(request):
     gl_img_verj = main_images.objects.filter(position1=True)
     gl_img_niz = main_images.objects.filter(position2=True)
-
     top_model_im1 = Top_Models.object.filter(show_art1=True)
     return render(request, 'test.html', {'image_top': gl_img_verj, 'image_bot': gl_img_niz, 'top_model_image1' : top_model_im1})
 
 
-
 # Форма регистрации пользователя
-
 def register(request):
     if request.method == 'POST':
         user_form = UserRegistrationForm(request.POST)

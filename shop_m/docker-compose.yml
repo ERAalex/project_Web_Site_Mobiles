@@ -1,0 +1,65 @@
+version: "3.7"
+
+services:
+  shop_m:
+    container_name: django_test_cont
+    image: django_test
+    environment:
+      - DATABASE_URL=postgresql://alex:nazca007@db_postgres:5432/shop_mob
+    command: python manage.py runserver 0.0.0.0:8000 --noreload
+    ports:
+      - 80:8000
+    depends_on:
+      - db_postgres
+
+  db_postgres:
+    container_name: django_post_cont
+    image: postgres
+    environment:
+      POSTGRES_DB: "shop_mob"
+      POSTGRES_USER: "alex"
+      POSTGRES_PASSWORD: "nazca007"
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data/
+    ports:
+      - "5432:5432"
+
+  pgadmin:
+    container_name: django_pgadmin_cont
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "eraspb@mail.ru"
+      PGADMIN_DEFAULT_PASSWORD: "nazca007"
+    ports:
+      - "5555:80"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

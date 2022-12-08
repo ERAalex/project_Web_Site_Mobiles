@@ -22,6 +22,5 @@ urlpatterns = [
 # просмотр каждого товара на отдельной странице
 #     path('<int:pk>', views.ProductDeatailView.as_view(), name='product_detail'),
     path('<int:pk>', views.ProductDeatailView.as_view(), name='product_detail'),
-    path('/top_models/<int:pk>', views.ProductTopDeatailView.as_view(), name='product_detail_top'),
 
 ]

@@ -100,7 +100,10 @@
 
 
               <!--= кнопка Тележка сверху справо можно настроить на отдельную страницу =-->
-              <li class="nav-item"><button><i class="ti-shopping-cart"></i><span class="nav-shop__circle">3</span></button> </li>
+              <li class="nav-item"><button><a class="ti-shopping-cart" href="{% url 'cart:cart_detail' %}"></a>
+
+                <span class="nav-shop__circle">{{cart.get_total_quant}}</span></button> </li>
+
               <!--= кнопка купить справо наверху =-->
 
               {% if user.is_authenticated %}
@@ -189,11 +192,11 @@
                                 <td>
                                     <!-- если корзина не пустая отображаем картинку -->
                                     <a href="{{ product.get_absolute_url}}">
-                                        <img src="{% if product.image %} {{product.image.url}} {% else %} {% static 'img/cart.jpg' %} {% endif %}">
+                                        <img src="{% if product.small_image %} {{product.small_image.url}} {% else %} {% static 'img/cart.jpg' %} {% endif %}">
                                     </a>
                                 </td>
                                 <!-- если корзина не пустая отображаем имя и т.д. -->
-                                <td>{{ product.name }}</td>
+                                <td>{{ product.title }}</td>
 
 
                                 <!-- ниже форма с возможностью редактировать количество и ниже его обновлять update -->
@@ -220,15 +223,24 @@
                     {% endfor %}
 
                     <tr class="total">
-                        <td>Всего</td>
+                        <td>Количество товара</td>
+                        <td colspan="4"></td>
+                        <td class="num">total {{cart.get_total_quant}}</td>
+                    </tr>
+
+
+                    <tr class="total">
+                        <td>Итого</td>
                         <td colspan="4"></td>
                         <td class="num">RUB {{cart.get_total_price}}</td>
                     </tr>
+
+
                 </tbody>
             </table>
 
             <p class="text-right">
-                <a href="{% url 'start' %}" class="button light">В магазин</a>
+                <a href="{% url 'products' %}" class="button light">В магазин</a>
                 <a href="#" class="button">Оформить заказ</a>
             </p>
 

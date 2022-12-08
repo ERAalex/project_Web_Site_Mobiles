@@ -101,7 +101,10 @@
 
 
               <!--= кнопка Тележка сверху справо можно настроить на отдельную страницу =-->
-              <li class="nav-item"><button><i class="ti-shopping-cart"></i><span class="nav-shop__circle">3</span></button> </li>
+              <li class="nav-item"><button><a class="ti-shopping-cart" href="{% url 'cart:cart_detail' %}"></a>
+
+                <span class="nav-shop__circle">{{cart.get_total_quant}}</span></button> </li>
+
               <!--= кнопка купить справо наверху =-->
 
               {% if user.is_authenticated %}
@@ -162,7 +165,7 @@
     <section class="section-margin calc-60px">
       <div class="container">
         <div class="section-intro pb-60px">
-          <p>Популярные модели на рынке</p>
+          <p>Популярные модели на рынке  ВСЕМ ПРИВЕТ</p>
           <h3>Показать модели:</h3>
               <a href="{% url 'products' %}" class="section-intro__style">Все модели</a>
             -

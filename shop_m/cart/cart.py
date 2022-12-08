@@ -1,6 +1,6 @@
 from decimal import Decimal
 from django.conf import settings
-from mobiles.models import all_products, Top_Models
+from mobiles.models import all_products
 
 
 
@@ -79,7 +79,9 @@ class Cart(object):
     def get_total_price(self):
         return sum(Decimal(item['price'])*item['quantity'] for item in self.cart.values())
 
-
+    # получение кол всех товаров
+    def get_total_quant(self):
+        return sum(item['quantity'] for item in self.cart.values())
 
     # полная очистка корзины в сессии
     def clear(self):
