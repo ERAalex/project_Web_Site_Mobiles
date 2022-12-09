@@ -91,8 +91,12 @@ def prod_pag_page(request):
         pag_prod = paginator.page(paginator.num_pages)
 
     cart_product_form = CartAddProductForm()
+    gl_img_verj = main_images.objects.filter(position1=True)
 
-    context = {'pag_prod': pag_prod, 'cart_product_form': cart_product_form}
+    context = {'pag_prod': pag_prod,
+               'cart_product_form': cart_product_form,
+               'image_top': gl_img_verj,
+               }
     return render(request, "products.html", context)
 
 

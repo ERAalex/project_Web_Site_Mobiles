@@ -1,22 +1,33 @@
 {% load static %}
 
-<!DOCTYPE html>
+
+
+
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+    {% block title %}
   <title>Mobile Shop - Espinosa</title>
+
+    {% endblock %}
+
+
     <!--   иконка напротив названия страницы         -->
 	<link rel="icon" href="{% static 'img/Fevicon.png' %}" type="image/png">
 
 
+    {% block styles %}
   <link rel="stylesheet" href="{% static 'vendors/bootstrap/bootstrap.min.css' %}">
     <!--   иконки из бутстрапа         -->
   <link rel="stylesheet" href="{% static 'vendors/themify-icons/themify-icons.css' %}">
     <!--   основные css         -->
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    {% endblock %}
+
 
 </head>
 
@@ -157,13 +168,16 @@
     <!--================ Hero banner start =================-->
 
 
-    <!-- ================ trending product section start ================= -->  
+    <!-- ================ trending product section start ================= -->
+          {% block content %}
+
     <section class="section-margin calc-60px">
       <div class="container">
         <div class="section-intro pb-60px">
           <p>Популярные модели на рынке</p>
           <h2>Топ <span class="section-intro__style">Модели</span></h2>
         </div>
+
 
               <!-- ================ ТОП модели картинки ================= -->
 
@@ -214,7 +228,7 @@
       </div>
     </section>
 
-
+    {% endblock %}
 
 
     <!-- ================ offer section start ================= --> 
