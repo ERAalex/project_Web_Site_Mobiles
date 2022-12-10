@@ -50,7 +50,7 @@
               <div class="card-product__img">
                   <img class="img_all_prod" src="{{ product.small_image.url }}">
                   <h4 class="card-product__title"><a href="{% url 'product_detail' product.id %}">{{ product.title }}</a></h4>
-                  <p class="card-product__price"><s>{{ product.price }}</s></p>
+                  <p class="card-product__price"><s>{{ product.price }} руб.</s></p>
                       <form action ="{% url 'cart:cart_add' product.id %}" method="post">
                           {{ cart_product_form }}
                           {% csrf_token %}

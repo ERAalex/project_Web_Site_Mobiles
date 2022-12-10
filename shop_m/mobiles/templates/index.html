@@ -173,14 +173,13 @@
 
 
         <div class="row">
-
           {% for im1 in all_result %}
           <div class="col-md-6 col-lg-4 col-xl-3">
             <div class="card text-center card-product">
               <div class="card-product__img">
 
                 <div>
-                    <img class="img-fluid" src="{{ im1.artimage.url }}">
+                    <img class="img-fluid" src="{{ im1.small_image.url }}">
                         <ul class="card-product__imgOverlay">
                           <li><button><i class="ti-search"></i></button></li>
                           <li><button><i class="ti-shopping-cart"></i></button></li>
@@ -190,9 +189,8 @@
               </div>
 
                 <div class="card-body">
-                  <p>телефоны</p>
                   <h4 class="card-product__title"><a href="{% url 'product_detail' im1.id %}">{{im1.title}}</a></h4>
-                  <p class="card-product__price">{{im1.price}}</p>
+                  <p class="card-product__price">{{im1.price}} руб.</p>
 
                   <!-- ================ часть кода с возможностью загрузить товар в корзину ================= -->
                   <form action="{% url 'cart:cart_add' im1.id %}" method="post">
