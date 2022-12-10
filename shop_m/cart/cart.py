@@ -47,8 +47,17 @@ class Cart(object):
         product_id = str(product.id)
         # тут идет сериализация в json, поэтому цену передаем в str т.к json принимает только строку
         if product_id not in self.cart:
-            self.cart[product_id] = {'quantity': 0, 'price': str(product.price)}
 
+
+
+######## ВНИМАНИЕ!!!! тут добавляем проверку есть ли скидка, если есть считаем ее, задаем переменную и ставим ее
+            if product.discount_active == True:
+                product_price = product.price - (product.price * product.discount)/100
+            else:
+                product_price = product.price
+#########
+
+            self.cart[product_id] = {'quantity': 0, 'price': str(product_price)}
         if update_quantity:
             self.cart[product_id]['quantity'] = quantity
         else:

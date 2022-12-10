@@ -57,7 +57,9 @@ def expensive_show(request):
 
 def discount_show(request):
     discount_products = all_products.objects.all().filter(discount_active=True)
-    return render(request, 'product_show.html', {'discount_products': discount_products})
+    cart_product_form = CartAddProductForm()
+    return render(request, 'product_show.html', {'discount_products': discount_products,
+                                                 'cart_product_form': cart_product_form})
 
 
 # Для корзины.
