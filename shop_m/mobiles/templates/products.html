@@ -44,10 +44,11 @@
 
                       <!-- ================ DJANGO вывод телефонов по марке - Apple,Samsung... ================= -->
 
+
         <div class="show_all_obj">
           {% for product in all_products_show %}
               <div class="card-product__img">
-                  <img class="img_all_prod" src="{{ product.small_image.url }}">
+                  <img src="{{ product.small_image.url }}" width="146" height="180">
                   <h4 class="card-product__title"><a href="{% url 'product_detail' product.id %}">{{ product.title }}</a></h4>
                   <p class="card-product__price">{{ product.price}} руб.</p>
                     <form action ="{% url 'cart:cart_add' product.id %}" method="post">
@@ -68,7 +69,7 @@
               {% for product in pag_prod %}
               <div class="card-product__img">
                 <div>
-                    <img class="img_all_prod" src="{{ product.artimage.url }}">
+                    <img src="{{ product.artimage.url }}" width="146" height="180">
                   <h4 class="card-product__title"><a href="{% url 'product_detail' product.id %}">{{ product.title }}</a></h4>
                     <p class="card-product__price">{{ product.price}} руб.</p>
 

@@ -20,7 +20,6 @@ urlpatterns = [
     path('discount', views.discount_show, name='discount'),
 
 # просмотр каждого товара на отдельной странице
-#     path('<int:pk>', views.ProductDeatailView.as_view(), name='product_detail'),
     path('<int:pk>', views.ProductDeatailView.as_view(), name='product_detail'),
 
 ]

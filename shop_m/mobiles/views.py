@@ -70,7 +70,7 @@ def product_detail(request, id):
     return render(request, 'shop_m/product/detail.html', {'product': product, 'cart_product_form': cart_product_form})
 #
 
-
+# Вывод при нажатии продукта на отдельной странице
 class ProductDeatailView(DetailView):
     model = all_products
     template_name = 'product_show.html'

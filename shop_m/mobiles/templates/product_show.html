@@ -64,10 +64,32 @@
           {% endfor %}
 
 
+        <div class="Detailprod">
+            <div class="Detail_left_for_img">
+    <!-- ставим условие, иначе отображается пустая картинка, когда выводим модели со скидками по коду выше -->
+                {% if product_see.artimage.url %}
+                <img class="img_prod_show" src="{{ product_see.artimage.url }}">
+                {% endif %}
+                <p></p>
+                <p></p>
+                <h4 class="card-product__title">{{ product_see.title }}</h4>
+            </div>
+
+            <div class="Detail_right_for_text">
+                {{ product_see.full_text }}
+                <p></p>
+                <p></p>
+                <p class="card-product__price">{{ product_see.price }}</p>
+                <p class="card-product__price"><font size="4" color="#fa8e47">
+                    {{ product_see.get_final_price|default_if_none:""  }}</font></p>
+           <!-- =если пусто в значении, то будет показывать NONE, чтобы вообще ничего не показыват ставим код выше= -->
 
 
+
+            </div>
         </div>
       </div>
+
 
     </section>
 
