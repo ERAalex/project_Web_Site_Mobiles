@@ -6,7 +6,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 urlpatterns = [
     path('', views.index, name='index'),
     path('start', views.index, name='start'),
-    path('test', views.test, name='test_test'),
+    path('insurance', views.insurance, name='insurance'),
     path('registr/', views.register, name='registr'),
     path('prod_show/', views.prod_pag_page, name='products'),
 

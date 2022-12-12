@@ -55,7 +55,7 @@
                   aria-expanded="false">Магазин</a>
                 <ul class="dropdown-menu">
                   <li class="nav-item"><a class="nav-link" href="{% url 'products' %}">Продукты</a></li>
-                  <li class="nav-item"><a class="nav-link" href="{% url 'products' %}">Документы</a></li>
+                  <li class="nav-item"><a class="nav-link" href="{% url 'insurance' %}">Гарантии</a></li>
                 </ul>
               </li>
 
@@ -127,19 +127,21 @@
   <main class="site-main">
     <!--================  banner start =================-->
 
+            <!--================  Главная картинка мобильника, надо сделать ее через админку =================-->
+
+
     <section class="hero-banner">
       <div class="container">
         <div class="row no-gutters align-items-center pt-60px">
+
+
+
+     {% block main_picture %}
+
           <div class="col-5 d-none d-sm-block">
-
-            <!--================  Главная картинка мобильника, надо сделать ее через админку =================-->
-
             <div class="hero-banner__img">
-              {% for v in image_top %}
-              <img class="img-fluid" src="{{ v.artimage.url }}" alt="">
-              {% endfor %}
+                <img class="img-fluid" src="{% static '/img/home/mobile_main_gif.gif' %}" alt="">
             </div>
-
 
           </div>
           <div class="col-sm-7 col-lg-6 offset-lg-1 pl-4 pl-md-5 pl-lg-0">
@@ -152,9 +154,14 @@
               <a class="button button-hero" href="{% url 'products' %}">Смотреть Каталог</a>
             </div>
           </div>
+
+     {% endblock %}
+
         </div>
       </div>
     </section>
+
+
     <!--================ Hero banner start =================-->
 
 

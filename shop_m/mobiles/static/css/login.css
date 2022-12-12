@@ -1,0 +1,15 @@
+
+
+
+@media (min-width: 991px){.hero-banner{z-index:111}}.hero-banner::before{
+content:"";
+display:block;
+width:5%;
+height:100%;
+background:#17292a;
+position:absolute;
+top:0;
+left:0}
+
+
+

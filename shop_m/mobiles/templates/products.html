@@ -6,14 +6,38 @@
 {% block title %} <title>All Phones - Espinosa</title>{% endblock %}
 
 {% block styles %}
-  <link rel="stylesheet" href="{% static 'vendors/bootstrap/bootstrap.min.css' %}">
+     <!--  здесь пришлось поменять цвет текста под темно-зеленый         -->
+  <link rel="stylesheet" href="{% static 'vendors/bootstrap/bootstrap.min_prod.css' %}">
     <!--   иконки из бутстрапа         -->
   <link rel="stylesheet" href="{% static 'vendors/themify-icons/themify-icons.css' %}">
     <!--   основные css         -->
-  <link rel="stylesheet" href="{% static 'css/prod_style.css' %}">
+
+  <link rel="stylesheet" href="{% static 'css/products.css' %}">
 
 
 {% endblock %}
+
+{% block main_picture %}
+
+<div class="col-5 d-none d-sm-block">
+    <div class="hero-banner__img">
+        <img class="img-fluid" src="{% static '/img/home/mobile_prod_2.jpg' %}" alt="">
+    </div>
+
+</div>
+<div class="col-sm-7 col-lg-6 offset-lg-1 pl-4 pl-md-5 pl-lg-0">
+    <div class="hero-banner__content">
+        <h4>Espinosa Rozov</h4>
+        <h1>Только лучшие технологии</h1>
+        <p>Наш магазин специализируется на продаже новых телефонов, только лучшее качество с постгарантийным ремонтом</p>
+        <p>Внимание! Данный сайт является тренировочным проектом python разработчика и не является
+            коммерческим проектом (реальным магазином)</p>
+        <a class="button button-hero" href="{% url 'products' %}">Смотреть Каталог</a>
+    </div>
+</div>
+
+{% endblock %}
+
 
 
     <!-- ================ trending product section start ================= -->

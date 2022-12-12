@@ -756,7 +756,7 @@ border-radius:30px;
 color:#222;
 font-weight:500;
 padding:12px 50px;
-background:#384aeb;
+background: #384aeb;
 color:#fff;
 transition:all .4s ease}
 
@@ -810,7 +810,8 @@ background:transparent;
 color:#222;
 border-color: #a9b1f6}
 
-.button-hero{padding:12px 41px}
+.button-hero{
+padding:12px 41px}
 
 .button--active{
 background: #384aeb;
