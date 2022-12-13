@@ -3,6 +3,24 @@ from django.db import models
 from django.utils.text import slugify
 
 
+class Articles(models.Model):
+    id = models.AutoField(primary_key=True, unique=True)
+    title = models.CharField('Название статьи', max_length=50)
+    full_text = models.TextField('описание')
+    date = models.DateTimeField('Дата публикации')
+    show_item = models.BooleanField('Показать статью', default=False)
+    company_article = models.BooleanField('Статья про бренд', default=False)
+    small_image = models.ImageField(null=True, blank=True, upload_to='static/img/company', verbose_name='Логотип')
+
+    slug = models.SlugField(blank=True)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'Статьи'
+        verbose_name_plural = 'Статьи'
+
 
 class all_products(models.Model):
     id = models.AutoField(primary_key=True, unique=True)

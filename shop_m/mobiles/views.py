@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from .models import main_images
-from .models import all_products
+from .models import all_products, Articles
 from .forms import LoginForm, UserRegistrationForm
 from django.views.generic import DetailView
 from cart.forms import CartAddProductForm
@@ -104,6 +104,12 @@ def prod_pag_page(request):
 
 def insurance(request):
     return render(request, 'insurance.html')
+
+def company(request):
+    all_company = Articles.objects.filter(company_article=True, show_item=True)
+    return render(request, 'company.html', {'all_company': all_company})
+
+
 
 
 # Форма регистрации пользователя

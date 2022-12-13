@@ -1,9 +1,11 @@
 from django.contrib import admin
-from .models import main_images, all_products
+from .models import main_images, all_products, Articles
 from django.utils.safestring import mark_safe
 
 
-
+@admin.register(Articles)
+class ArticlesAdmin(admin.ModelAdmin):
+    list_display = ['title', 'show_item', 'date']
 
 
 @admin.register(all_products)
