@@ -109,7 +109,8 @@ def company(request):
     all_company = Articles.objects.filter(company_article=True, show_item=True)
     return render(request, 'company.html', {'all_company': all_company})
 
-
+def contact(request):
+    return render(request, 'contact.html')
 
 
 # Форма регистрации пользователя
