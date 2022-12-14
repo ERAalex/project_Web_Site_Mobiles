@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type="text/javascript">
+        ymaps.ready(function(){
+            // Указывается идентификатор HTML-элемента.
+            var moscow_map = new ymaps.Map("first_map", {
+                center: [55.76, 37.64],
+                zoom: 10
+            });
+            // Ссылка на элемент.
+            var piter_map = new ymaps.Map(document.getElementsByTagName('p')[2], {
+                center: [59.94, 30.32],
+                zoom: 9
+            });
+        });
+  </script>
+</head>
+<body>
+    <p>Карта Москвы</p>
+    <div id="first_map" style="width:400px; height:300px"></div>
+    <p>Карта Санкт-Петербурга</p>
+    <p style="width:400px; height:200px"></p>
+</body>
+</html>

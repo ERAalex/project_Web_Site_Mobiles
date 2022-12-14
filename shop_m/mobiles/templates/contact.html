@@ -3,7 +3,31 @@
 {% load static %}
 
 
-{% block title %} <title>Контакты - Espinosa</title>{% endblock %}
+{% block title %} <title>Контакты - Espinosa</title>
+    <!--  map.controls.remove('geolocationControl') удалаяет с картинки не нужные кнопки, есть список    -->
+     <!--  подключение карт yandex api, в коде "map" - это ссылка на id блока куда будет вставать карта (div)   -->
+<script src="https://api-maps.yandex.ru/2.1/?apikey=b8a5562f-7835-4249-84a7-15bbe3d4f1a5&lang=ru_RU" type="text/javascript"></script>
+<script type="text/javascript">
+  ymaps.ready(function () {
+    var map = new ymaps.Map("map", {
+      center: [59.933735, 30.341991],
+      zoom: 17
+    });
+
+    <!--    добавление значка на карте-->
+    var placemark = new ymaps.Placemark([59.933735, 30.341991], {
+
+    });
+    map.geoObjects.add(placemark);
+    <!--    добавление значка на карте-->
+
+    map.controls.remove('geolocationControl');
+
+  });
+</script>
+
+{% endblock %}
+
 
 {% block styles %}
      <!--  здесь пришлось поменять цвет текста под темно-зеленый         -->
@@ -11,16 +35,13 @@
     <!--   иконки из бутстрапа         -->
   <link rel="stylesheet" href="{% static 'vendors/themify-icons/themify-icons.css' %}">
     <!--   основные css         -->
-
   <link rel="stylesheet" href="{% static 'css/products.css' %}">
-
-  <link rel="stylesheet" href="{% static 'css/company.css' %}">
-
+  <link rel="stylesheet" href="{% static 'css/contact.css' %}">
 
 {% endblock %}
 
-{% block main_picture %}
 
+{% block main_picture %}
 <div class="col-5 d-none d-sm-block">
     <div class="hero-banner__img">
         <img class="img-fluid" src="{% static '/img/home/contact_logo.gif' %}" alt="">
@@ -30,49 +51,32 @@
 <div class="col-sm-7 col-lg-6 offset-lg-1 pl-4 pl-md-5 pl-lg-0">
     <div class="hero-banner__content">
         <h4>Espinosa Rozov</h4>
-        <h1>Контакты нашей компании</h1>
+        <h1>Адрес Магазина</h1>
         <p>Посетите наш магазин, точный адрес Вы найдете ниже</p>
         <p>Работаем пн-вс с 10:00 до 19:00</p>
         <a class="button button-hero" href="{% url 'products' %}">Смотреть Каталог</a>
     </div>
 </div>
-
 {% endblock %}
 
 
 
-    <!-- ================ trending product section start ================= -->
+    <!-- ================ Блок с выводом карты ================= -->
 {% block content %}
-
     <section class="section-margin calc-60px">
       <div class="container">
         <div class="section-intro pb-60px">
-          <p>Список ведущих производителей мобильных телефонов</p>
-          <h3>Основные компании:</h3>
+            <br>
+          <h3>Адрес нашего магазина:</h3>
+            <p>Санкт-Петербург, Невский проспект, д. 29/66</p>
+            <div class="container_text_map">
+                <div id="map" class="container_map">
+                    Наше расположение:
+                </div>
+            </div>
 
-
-            <!-- ================ отображение компаний - Apple,Samsung... ================= -->
-
-<!--            {% for item in all_company %}-->
-<!--       <div class="company">-->
-
-<!--           <div class = "company_logo">-->
-<!--               <img src="{{ item.small_image.url }}" alt="">-->
-<!--           </div>-->
-
-<!--           <div class = "company_inf">-->
-<!--               <br>-->
-<!--               <h3>{{ item.title }}</h3>-->
-<!--               <br>-->
-<!--            {{ item.full_text|linebreaks }}-->
-<!--               <br>-->
-<!--           </div>-->
-<!--       </div>-->
-<!--           {% endfor %}-->
-
-
+        </div>
+      </div>
     </section>
-
-
 {% endblock %}
 
