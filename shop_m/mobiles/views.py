@@ -110,7 +110,8 @@ def company(request):
     return render(request, 'company.html', {'all_company': all_company})
 
 def contact(request):
-    return render(request, 'contact.html')
+    contact = Articles.objects.filter(show_item=True, title='Контактный центр: 8 800 245 45 25')
+    return render(request, 'contact.html', {'contact': contact})
 
 
 # Форма регистрации пользователя

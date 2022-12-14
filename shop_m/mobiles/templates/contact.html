@@ -6,7 +6,11 @@
 {% block title %} <title>Контакты - Espinosa</title>
     <!--  map.controls.remove('geolocationControl') удалаяет с картинки не нужные кнопки, есть список    -->
      <!--  подключение карт yandex api, в коде "map" - это ссылка на id блока куда будет вставать карта (div)   -->
-<script src="https://api-maps.yandex.ru/2.1/?apikey=b8a5562f-7835-4249-84a7-15bbe3d4f1a5&lang=ru_RU" type="text/javascript"></script>
+
+<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"
+        type="text/javascript"></script>
+
+
 <script type="text/javascript">
   ymaps.ready(function () {
     var map = new ymaps.Map("map", {
@@ -16,15 +20,21 @@
 
     <!--    добавление значка на карте-->
     var placemark = new ymaps.Placemark([59.933735, 30.341991], {
+            balloonContentHeader: "Магазин MobyStyle",
+            balloonContentBody: "Наш магазин работает каждый <br> день c 10:00 до 20:00",
+            balloonContentFooter: "Espinosa Rozov",
+            hintContent: "MobyStyle"
+        });
 
-    });
     map.geoObjects.add(placemark);
     <!--    добавление значка на карте-->
-
     map.controls.remove('geolocationControl');
 
   });
 </script>
+
+
+
 
 {% endblock %}
 
@@ -51,7 +61,6 @@
 <div class="col-sm-7 col-lg-6 offset-lg-1 pl-4 pl-md-5 pl-lg-0">
     <div class="hero-banner__content">
         <h4>Espinosa Rozov</h4>
-        <h1>Адрес Магазина</h1>
         <p>Посетите наш магазин, точный адрес Вы найдете ниже</p>
         <p>Работаем пн-вс с 10:00 до 19:00</p>
         <a class="button button-hero" href="{% url 'products' %}">Смотреть Каталог</a>
@@ -63,16 +72,28 @@
 
     <!-- ================ Блок с выводом карты ================= -->
 {% block content %}
-    <section class="section-margin calc-60px">
+    <section class="section-margin calc-60px ">
       <div class="container">
-        <div class="section-intro pb-60px">
-            <br>
+                      <br>
           <h3>Адрес нашего магазина:</h3>
             <p>Санкт-Петербург, Невский проспект, д. 29/66</p>
-            <div class="container_text_map">
-                <div id="map" class="container_map">
-                    Наше расположение:
+        <div class="pb-60px change_map_text">
+            <div class="some_container">
+                <br>
+
+                <div class="text_map">
+                    {% for item in contact %}
+                    <br>
+                    <h4>{{ item.title }}</h4>
+                    <h4>{{ item.full_text|linebreaks }}</h4>
+                    {% endfor %}
                 </div>
+
+                <div class="container_text_map">
+                    <div id="map" class="container_map">
+                    </div>
+                </div>
+
             </div>
 
         </div>
