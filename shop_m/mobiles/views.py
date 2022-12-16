@@ -5,10 +5,13 @@ from .models import all_products, Articles
 from .forms import LoginForm, UserRegistrationForm
 from django.views.generic import DetailView
 from cart.forms import CartAddProductForm
+from .email_code import email_check
 
 
 
 def index(request):
+    # блок отправки письма
+    form = email_check(request)
 
     all_result = all_products.objects.filter(show_on_main_page=True)
     gl_img_verj = main_images.objects.filter(position1=True)
@@ -21,6 +24,7 @@ def index(request):
         'image_top': gl_img_verj,
         'image_bot': gl_img_niz,
         'cart_product_form': cart_product_form,
+        'form': form
     })
 
 

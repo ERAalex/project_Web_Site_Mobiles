@@ -1,7 +1,7 @@
 {% load static %}
 
 
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -310,7 +310,7 @@
     </section>
     <!-- ================ Blog section end ================= -->  
 
-    <!-- ================ Subscribe section start ================= --> 
+    <!-- ================ Блок отправка сообщений, email ================= -->
     <section class="subscribe-position">
       <div class="container">
         <div class="subscribe text-center">
@@ -318,18 +318,39 @@
           <p>отправьте мне Ваш email или напишите в
               <a href="https://t.me/espinosa_python" target="_blank" class="icon brands fa-telegram">телеграм</a></p>
 
-            <form target="_blank" action=""
-                  method="get" class="subscribe-form form-inline mt-5 pt-1">
-              <div class="form-group ml-sm-auto">
-                <input class="form-control mb-1" type="email" name="EMAIL"
-                       placeholder="Введите Ваш email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Email Address '" >
-                <div class="info"></div>
-              </div>
-              <button class="button button-subscribe mr-auto mb-1" type="submit">Отправить</button>
-              <div style="position: absolute; left: -5000px;">
-                <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
-              </div>
-            </form>
+
+                {% if messages %}
+                    {% for message in messages %}
+            <h4><font color="#2f9f48"> {{ message }} </font></h4>
+                    {% endfor %}
+
+                {% endif %}
+
+                <form method="post" action="#" class="subscribe-form form-inline mt-5 pt-1">
+                    {% csrf_token %}
+                  <div class="form-group ml-sm-auto">
+                      {{ form.email }}
+                  </div>
+                  <button class="button button-subscribe mr-auto mb-1" type="submit">Отправить</button>
+                </form>
+
+
+
+
+<!--            -->
+<!--            <form target="_blank" action=""-->
+<!--                  method="get" class="subscribe-form form-inline mt-5 pt-1">-->
+<!--              <div class="form-group ml-sm-auto">-->
+<!--                <input class="form-control mb-1" type="email" name="EMAIL"-->
+<!--                       placeholder="Введите Ваш email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Email Address '" >-->
+<!--                <div class="info"></div>-->
+<!--              </div>-->
+<!--              <button class="button button-subscribe mr-auto mb-1" type="submit">Отправить</button>-->
+<!--              <div style="position: absolute; left: -5000px;">-->
+<!--                <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">-->
+<!--              </div>-->
+<!--            </form>-->
+
 
           </div>
         </div>

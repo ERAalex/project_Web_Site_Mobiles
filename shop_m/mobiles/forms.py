@@ -22,3 +22,9 @@ class UserRegistrationForm(forms.ModelForm):
 class LoginForm(forms.Form):
     username = forms.CharField()
     password = forms.CharField(widget=forms.PasswordInput)
+
+
+
+class ContactForm(forms.Form):
+    subject = forms.CharField(label='', widget=forms.TextInput(attrs={'class': 'form-control'}), required=False)
+    email = forms.CharField(label='', widget=forms.TextInput(attrs={'class': 'form-control'}))
