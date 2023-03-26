@@ -20,29 +20,21 @@ This project is under development. The main idea: <br>
 
 - Django Project.
 - Database - PostgreSQL
-- Docker-compose.yml - containers - Project + PostgreSQL + PgAdmin + Nginx
 
-The project implemented a shopping cart with the ability to add products and display the final price.
+The project has a shopping cart with the ability to add products and display the final price.
 
-## About Docker-compose.
+### Manual
+
+To build this container run in the folder of the `docker-compose`-file: 
+
+1. `docker-compose build`
+2. `docker-compose run -d` this runs the containers detachted
+3. Open you favourite browser and go to [localhost/index/](localhost/index/)
+4. To shutdown run `docker-compsose down`
 
 
-## Technologies
-Main:<br/>
-[![SkillIcons](https://skillicons.dev/icons?i=python)](https://skillicons.dev) PYTHON - REST FRAMEWORK <br/>
 
-Main:<br/>
-[![SkillIcons](https://skillicons.dev/icons?i=vue)](https://skillicons.dev) VUE JS <br/>
 
-DATABASES:<br/>
-[![SkillIcons](https://skillicons.dev/icons?i=mongo)](https://skillicons.dev) Mongo DB <br/>
-
-Additional tech:<br/>
-[![SkillIcons](https://skillicons.dev/icons?i=git)](https://skillicons.dev) GIT <br/>
-[![SkillIcons](https://skillicons.dev/icons?i=linux)](https://skillicons.dev) Linux <br/><br/>
-
-[![SkillIcons](https://skillicons.dev/icons?i=html)](https://skillicons.dev) HTML <br/>
-[![SkillIcons](https://skillicons.dev/icons?i=css)](https://skillicons.dev) CSS <br/>
 <br/><br/>
 
 ## The most important projects:
@@ -54,9 +46,6 @@ Additional tech:<br/>
 7. <p><a href="https://github.com/ERAalex/Netology_Collective_work">➡️ Collective work. Education purpose. VK-bot</a></p>
 8. <p><a href="#">➡️ Control pass, education purpose. Working on it</a></p>
 9. <p><a href="https://telegram.me/simon_esp_bot">➡️ Online-school. Telegram Bot (aiogram). Done. You can see it on Telegram @simon_esp_bot. To start print /start and /menu</a></p>
-
-
-
 
 
 <br/>
