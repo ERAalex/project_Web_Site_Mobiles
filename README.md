@@ -20,48 +20,12 @@ This project is under development. The main idea: <br>
 
 - Django Project.
 - Database - PostgreSQL
-- 
+- Docker-compose.yml - containers - Project + PostgreSQL + PgAdmin + Nginx
 
-you can make a request  http://127.0.0.1:8000/coin/GBP   where GBP - is a coin of England
+The project implemented a shopping cart with the ability to add products and display the final price.
 
-2. Vue JS.<br>
-- the user can write the name of coin and get information from our Fast Api Server.<br><br>
+## About Docker-compose.
 
-
-3. Ready Dockerfile and Docker-compose.yml to RUN Containers.<br> Just type the command: docker-compose up
-Container for app + Container for MongoDB <br><br>
-
-
-Interesting points about API of SBR:<br>
-- All information from https://cbr.ru/development/SXML/ we recive not in JSON but as XML so we need to use - import xmltodict as xmltodict <br>
-<br>
-
-Intresting points about Mongo db to JSON:<br>
-- When we try to pass Mongo Db information as JSON response in Fast API we can recieve problem with '_ id' because it is not just field like int or str, so Fast Api can't serialize this field, the opcion is not use this field, just skip it like: <br>
-find_item = collection_name.find_one({'date': f'{date}'}, {'_id': 0}).
-
-
-RESOLVED  Problem.
-When we try make a API request from Vue JS to localhost Fast Api you can get this error: <br>
-- fast api from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' <br><br>
-
-You can do:<br>
-
-from fastapi.middleware.cors import CORSMiddleware <br><br>
-and add: <br>
-
-origins = ["*"] <br>
-
-app.add_middleware(<br>
-    CORSMiddleware,<br>
-    allow_origins=origins,<br>
-    allow_credentials=True,<br>
-    allow_methods=["*"],<br>
-    allow_headers=["*"],<br>
-)<br>
-
-
-<br>
 
 ## Technologies
 Main:<br/>
