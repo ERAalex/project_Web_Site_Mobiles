@@ -2,7 +2,7 @@
 #### E.R.A. - Espinosa Rozov Alexander - python developer.
 # Project - Mobile Online Shop
 
-<img src="https://github.com/ERAalex/ERA_Fast_API_course_money/blob/main/api_money_im.webp">
+<img src="https://github.com/ERAalex/project_Web_Site_Mobiles/blob/main/new_fon_mobile.png">
 <p>
   <a href="https://www.linkedin.com/in/alexander-espinosa-rozov-b3b270121/"><img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"></a>
 </p>
@@ -16,12 +16,11 @@
       <img src="https://github.com/ERAalex/PREVIEW_project_site_buisness_card_Maria-/blob/main/website_icons.jpg" >
     </a>
 
-This application is a Fast Api server with the ability to provide the exchange rate of coins on any date. The main idea: <br>
+This project is under development. The main idea: <br>
 
-1. FAST API Server.<br>
-- use API of https://cbr.ru/development/SXML/ to get new information about exchange rate of coins.<br>
-- Check information in database - Mongo DB.<br>
-- Save new information on Mongo Db database.<br>
+- Django Project.
+- Database - PostgreSQL
+- 
 
 you can make a request  http://127.0.0.1:8000/coin/GBP   where GBP - is a coin of England
 
