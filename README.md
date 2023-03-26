@@ -46,6 +46,8 @@ To build this container run in the folder of the `docker-compose`-file:
 7. <p><a href="https://github.com/ERAalex/Netology_Collective_work">➡️ Collective work. Education purpose. VK-bot</a></p>
 8. <p><a href="https://github.com/ERAalex/PREVIEW_QRcode_employee/blob/main/README.md">➡️ Control pass, education purpose.</a></p>
 9. <p><a href="https://telegram.me/simon_esp_bot">➡️ Online-school. Telegram Bot (aiogram). Done. You can see it on Telegram @simon_esp_bot. To start print /start and /menu</a></p>
+10. <p><a href="https://github.com/ERAalex/ERA_Fast_API_course_money">➡️ Project - API Money. Fast API + VUE Js + MongoDB. API requests to SBR(Bank of Russia)</a></p>
+11. <p><a href="https://github.com/ERAalex/ERA_Weather_Api_app">➡️ Project - API Weather - openweather. Django REST Framework + VUE Js. API requests to Openweather</a></p>
 
 
 
