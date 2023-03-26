@@ -1,0 +1,103 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+
+{% block title %} <title>Контакты - Espinosa</title>
+    <!--  map.controls.remove('geolocationControl') удалаяет с картинки не нужные кнопки, есть список    -->
+     <!--  подключение карт yandex api, в коде "map" - это ссылка на id блока куда будет вставать карта (div)   -->
+
+<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"
+        type="text/javascript"></script>
+
+
+<script type="text/javascript">
+  ymaps.ready(function () {
+    var map = new ymaps.Map("map", {
+      center: [59.933735, 30.341991],
+      zoom: 17
+    });
+
+    <!--    добавление значка на карте-->
+    var placemark = new ymaps.Placemark([59.933735, 30.341991], {
+            balloonContentHeader: "Магазин MobyStyle",
+            balloonContentBody: "Наш магазин работает каждый <br> день c 10:00 до 20:00",
+            balloonContentFooter: "Espinosa Rozov",
+            hintContent: "MobyStyle"
+        });
+
+    map.geoObjects.add(placemark);
+    <!--    добавление значка на карте-->
+    map.controls.remove('geolocationControl');
+
+  });
+</script>
+
+
+
+
+{% endblock %}
+
+
+{% block styles %}
+     <!--  здесь пришлось поменять цвет текста под темно-зеленый         -->
+  <link rel="stylesheet" href="{% static 'vendors/bootstrap/bootstrap.min_prod.css' %}">
+    <!--   иконки из бутстрапа         -->
+  <link rel="stylesheet" href="{% static 'vendors/themify-icons/themify-icons.css' %}">
+    <!--   основные css         -->
+  <link rel="stylesheet" href="{% static 'css/products.css' %}">
+  <link rel="stylesheet" href="{% static 'css/contact.css' %}">
+
+{% endblock %}
+
+
+{% block main_picture %}
+<div class="col-5 d-none d-sm-block">
+    <div class="hero-banner__img">
+        <img class="img-fluid" src="{% static '/img/home/contact_logo.gif' %}" alt="">
+    </div>
+
+</div>
+<div class="col-sm-7 col-lg-6 offset-lg-1 pl-4 pl-md-5 pl-lg-0">
+    <div class="hero-banner__content">
+        <h4>Espinosa Rozov</h4>
+        <p>Посетите наш магазин, точный адрес Вы найдете ниже</p>
+        <p>Работаем пн-вс с 10:00 до 19:00</p>
+        <a class="button button-hero" href="{% url 'products' %}">Смотреть Каталог</a>
+    </div>
+</div>
+{% endblock %}
+
+
+
+    <!-- ================ Блок с выводом карты ================= -->
+{% block content %}
+    <section class="section-margin calc-60px ">
+      <div class="container">
+                      <br>
+          <h3>Адрес нашего магазина:</h3>
+            <p>Санкт-Петербург, Невский проспект, д. 29/66</p>
+        <div class="pb-60px change_map_text">
+            <div class="some_container">
+                <br>
+
+                <div class="text_map">
+                    {% for item in contact %}
+                    <br>
+                    <h4>{{ item.title }}</h4>
+                    <h4>{{ item.full_text|linebreaks }}</h4>
+                    {% endfor %}
+                </div>
+
+                <div class="container_text_map">
+                    <div id="map" class="container_map">
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+      </div>
+    </section>
+{% endblock %}
+

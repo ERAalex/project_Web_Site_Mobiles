@@ -1,0 +1,22 @@
+
+
+.company{
+background: white;
+display: flex;
+flex-direction: row;
+border: 0.5px solid grey;
+}
+
+.company_logo{
+background: white;
+}
+
+.company_inf{
+margin-left: 30px;
+background: white
+
+}
+
+.im_2{
+max-width: 100%;
+}

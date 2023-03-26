@@ -1,0 +1,78 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+
+{% block title %} <title>Бренды - Espinosa</title>{% endblock %}
+
+{% block styles %}
+     <!--  здесь пришлось поменять цвет текста под темно-зеленый         -->
+  <link rel="stylesheet" href="{% static 'vendors/bootstrap/bootstrap.min_prod.css' %}">
+    <!--   иконки из бутстрапа         -->
+  <link rel="stylesheet" href="{% static 'vendors/themify-icons/themify-icons.css' %}">
+    <!--   основные css         -->
+
+  <link rel="stylesheet" href="{% static 'css/products.css' %}">
+
+  <link rel="stylesheet" href="{% static 'css/company.css' %}">
+
+
+{% endblock %}
+
+{% block main_picture %}
+
+<div class="col-5 d-none d-sm-block">
+    <div class="hero-banner__img">
+        <img class="img-fluid im_2" src="{% static '/img/home/test_image.gif' %}" alt="">
+    </div>
+
+</div>
+<div class="col-sm-7 col-lg-6 offset-lg-1 pl-4 pl-md-5 pl-lg-0">
+    <div class="hero-banner__content">
+        <h4>Espinosa Rozov</h4>
+        <h1>Лучшие компании</h1>
+        <p>Наш магазин специализируется на продаже новых телефонов, только лучшее качество с постгарантийным ремонтом</p>
+        <p>Мы продаем продукцию только ведущих производителей</p>
+        <a class="button button-hero" href="{% url 'products' %}">Смотреть Каталог</a>
+    </div>
+</div>
+
+{% endblock %}
+
+
+
+    <!-- ================ trending product section start ================= -->
+{% block content %}
+
+    <section class="section-margin calc-60px">
+      <div class="container">
+        <div class="section-intro pb-60px">
+          <p>Список ведущих производителей мобильных телефонов</p>
+          <h3>Основные компании:</h3>
+
+
+            <!-- ================ отображение компаний - Apple,Samsung... ================= -->
+
+            {% for item in all_company %}
+       <div class="company">
+
+           <div class = "company_logo">
+               <img src="{{ item.small_image.url }}" alt="">
+           </div>
+
+           <div class = "company_inf">
+               <br>
+               <h3>{{ item.title }}</h3>
+               <br>
+            {{ item.full_text|linebreaks }}
+               <br>
+           </div>
+       </div>
+           {% endfor %}
+
+
+    </section>
+
+
+{% endblock %}
+

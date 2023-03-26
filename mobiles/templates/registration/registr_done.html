@@ -1,0 +1,65 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+
+{% block title %} <title>Registration done - Espinosa</title>{% endblock %}
+
+{% block styles %}
+
+  <link rel="stylesheet" href="{% static 'vendors/bootstrap/bootstrap.min.css' %}">
+    <!--   иконки из бутстрапа         -->
+  <link rel="stylesheet" href="{% static 'vendors/themify-icons/themify-icons.css' %}">
+    <!--   основные css         -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+{% endblock %}
+
+{% block main_picture %}
+
+<div class="col-5 d-none d-sm-block">
+    <div class="hero-banner__img">
+        <img class="img-fluid" src="{% static '/img/home/log_in.jpg' %}" alt="">
+    </div>
+
+</div>
+<div class="col-sm-7 col-lg-6 offset-lg-1 pl-4 pl-md-5 pl-lg-0">
+    <div class="hero-banner__content">
+        <h4>Espinosa Rozov</h4>
+        <h1>Войдите в Ваш личный кабинет</h1>
+        <p>После входа в личный кабинет Вам будут доступны новые возможности.</p>
+        <p>Зарегистрированным пользователям предоставляется постоянная скидка в 5%</p>
+        <a class="button button-hero" href="{% url 'products' %}">Смотреть Каталог</a>
+    </div>
+</div>
+
+{% endblock %}
+
+
+{% block content %}
+    <!--================ ЧАСТЬ ДЛЯ РЕГИСТРАЦИИ =================-->
+
+
+<div class = "log_in_block">
+  <br>
+  <br>
+  <br>
+
+   <h3>Добро пожаловать! {{ new_user.first_name }}!</h3>
+
+      <p>Ваш аккаунт был успешн создан. Спасибо, за регистрацию. Espinosa Rozov Alex.</p>
+
+  <a class="button button-header" href="{% url 'index' %}">Вернуться на главную страницу</a>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
+</div>
+
+{% endblock %}

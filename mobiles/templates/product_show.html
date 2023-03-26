@@ -1,0 +1,98 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+
+{% block title %} <title>All Phones - Espinosa</title>{% endblock %}
+
+{% block styles %}
+  <link rel="stylesheet" href="{% static 'vendors/bootstrap/bootstrap.min.css' %}">
+    <!--   иконки из бутстрапа         -->
+  <link rel="stylesheet" href="{% static 'vendors/themify-icons/themify-icons.css' %}">
+    <!--   основные css         -->
+  <link rel="stylesheet" href="{% static 'css/prod_style.css' %}">
+
+
+{% endblock %}
+
+
+    <!-- ================ trending product section start ================= -->
+
+{% block content %}
+
+    <section class="section-margin calc-60px">
+      <div class="container">
+        <div class="section-intro pb-60px">
+          <p>Популярные модели на рынке</p>
+          <h3>Показать модели:</h3>
+              <a href="{% url 'products' %}" class="section-intro__style">Все модели</a>
+            -
+              <a href="{% url 'apple' %}" class="section-intro__style">Apple</a>
+            -
+              <a href="{% url 'samsung' %}" class="section-intro__style">Samsung</a>
+            -
+              <a href="{% url 'huawei' %}" class="section-intro__style">Huawei</a>
+            -
+              <a href="{% url 'honor' %}" class="section-intro__style">Honor</a>
+            -
+              <a href="{% url 'prod_chip' %}" class="section-intro__style">Сначало недорогие</a>
+            -
+              <a href="{% url 'prod_expens' %}" class="section-intro__style">Сначало дорогие</a>
+
+        </div>
+
+
+
+                      <!-- ================ DJANGO вывод телефонов по марке - Apple,Samsung... ================= -->
+
+          {% for product in discount_products %}
+        <div class="show_all_obj">
+              <div class="card-product__img">
+                  <img class="img_all_prod" src="{{ product.small_image.url }}">
+                  <h4 class="card-product__title"><a href="{% url 'product_detail' product.id %}">{{ product.title }}</a></h4>
+                  <p class="card-product__price"><s>{{ product.price }} руб.</s></p>
+                      <form action ="{% url 'cart:cart_add' product.id %}" method="post">
+                          {{ cart_product_form }}
+                          {% csrf_token %}
+                          <input type="submit" value="В корзину">
+                      </form>
+
+                  <p class="card-product__price"><font size="3" color="#fa8e47">{{ product.get_final_price|default_if_none:""}}</font></p>
+    <!-- =если пусто в значении, то будет показывать NONE, чтобы вообще ничего не показыват ставим код выше= default... -->
+              </div>
+        </div>
+          {% endfor %}
+
+
+        <div class="Detailprod">
+            <div class="Detail_left_for_img">
+    <!-- ставим условие, иначе отображается пустая картинка, когда выводим модели со скидками по коду выше -->
+                {% if product_see.artimage.url %}
+                <img class="img_prod_show" src="{{ product_see.artimage.url }}">
+                {% endif %}
+                <p></p>
+                <p></p>
+                <h4 class="card-product__title">{{ product_see.title }}</h4>
+            </div>
+
+            <div class="Detail_right_for_text">
+                {{ product_see.full_text }}
+                <p></p>
+                <p></p>
+                <p class="card-product__price">{{ product_see.price }}</p>
+                <p class="card-product__price"><font size="4" color="#fa8e47">
+                    {{ product_see.get_final_price|default_if_none:""  }}</font></p>
+           <!-- =если пусто в значении, то будет показывать NONE, чтобы вообще ничего не показыват ставим код выше= -->
+
+
+
+            </div>
+        </div>
+      </div>
+
+
+    </section>
+
+
+{% endblock %}
+

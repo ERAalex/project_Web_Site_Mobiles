@@ -1,0 +1,990 @@
+
+
+/* _____________  Страница Products _____________ */
+
+.show_all_obj{
+background = black;
+weight = 400px;
+height = 700px;
+
+
+}
+
+
+.login_chek_pass{
+margin-top: 15px;
+}
+
+.log_in_block{
+margin-left: 30%;
+margin-top: 2%;
+
+}
+
+.login_fail_check{
+margin-top: 1px;
+}
+
+@import url("https://fonts.googleapis.com/css?family=Oswald:400,500,600");
+
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,500");
+
+.body{
+color:#777;
+font-family:"Roboto",sans-serif;
+font-size:15px;
+font-weight:400;
+line-height:1.667}
+
+.ul{
+list-style-type:none;
+margin:0;
+padding:0}
+
+.a:hover{
+text-decoration:none}
+
+.button{
+cursor:pointer}
+
+.button:focus{
+outline:0;
+box-shadow:none}
+
+.h1,h2,h3,h4,h5,h6{
+font-family:"Oswald",sans-serif;
+color:#222;
+line-height:1.1}
+
+
+h1,.h1{font-size:50px;font-weight:700}
+h2,.h2{font-size:36px;font-weight:600}
+h3,.h3{font-size:26px;font-weight:600}
+
+
+
+
+@media (min-width: 600px){h3,.h3{font-size:36px}}
+
+h4,.h4{font-size:20px;font-weight:400;line-height:1.3}
+
+.a{
+display:inline-block}
+
+.fixed{
+background:#fff;
+position:fixed !important;
+top:0;
+left:0;
+width:100% !important}
+
+
+@media (min-width: 1000px){.section-margin--small{margin:98px 0}}
+
+.section-padding{
+padding:60px 0}
+
+@media (min-width: 1000px){.section-padding{padding:130px 0}}
+
+.pb-60px{
+padding-bottom:60px}
+
+.pt-60px{
+padding-top:60px}
+
+.ml-40{margin-left:40px}
+
+/* _____________  Шрифт и настройка меню сверху _____________ */
+
+.header_area{
+position:relative;
+width:100%;
+z-index:9999;
+transition:background 0.4s, all 0.3s linear;
+box-shadow:0px 10px 27px 3px rgba(221,221,221,0.3)}
+
+.header_area .navbar{
+background:transparent;
+padding:0px;
+border:0px;
+border-radius:0px}
+
+.header_area .navbar .nav .nav-item{
+margin-right:45px}
+
+.header_area .navbar .nav .nav-item .nav-link{
+text-transform:capitalize;
+color:#222;
+display:inline-block}
+
+@media (min-width: 991px){.header_area .navbar .nav .nav-item .nav-link{padding:32px 0px}}
+
+.header_area .navbar .nav .nav-item .nav-link:after{
+display:none}
+
+.header_area .navbar .nav .nav-item:hover .nav-link,.header_area .navbar .nav .nav-item.active .nav-link{color:#384aeb}
+
+.header_area .navbar .nav .nav-item.submenu{position:relative}
+
+.header_area .navbar .nav .nav-item.submenu ul{
+border:none;
+padding:0px;
+border-radius:0px;
+box-shadow:none;
+margin:0px;
+background:#fff}
+
+@media (min-width: 992px){.header_area .navbar .nav .nav-item.submenu ul{
+position:absolute;
+top:120%;
+left:0px;
+min-width:200px;
+text-align:left;
+opacity:0;
+transition:all 300ms ease-in;
+visibility:hidden;
+display:block;
+border:none;
+padding:0px;
+border-radius:0px}}
+
+.header_area .navbar .nav .nav-item.submenu ul:before{
+content:"";
+width:0;
+height:0;
+border-style:solid;
+border-width:10px 10px 0 10px;
+border-color:#eeeeee transparent transparent transparent;
+position:absolute;
+right:24px;
+top:45px;
+z-index:3;
+opacity:0;
+transition:all 400ms linear}
+
+.header_area .navbar .nav .nav-item.submenu ul .nav-item{
+display:block;
+float:none;
+margin-right:0px;
+border-bottom:1px solid #ededed;
+margin-left:0px;
+transition:all 0.4s linear}
+
+.header_area .navbar .nav .nav-item.submenu ul .nav-item .nav-link{
+line-height:45px;
+color:#222;
+padding:0px 30px;
+transition:all 150ms linear;
+display:block;
+margin-right:0px}
+
+.header_area .navbar .nav .nav-item.submenu ul .nav-item:last-child{
+border-bottom:none}
+
+.header_area .navbar .nav .nav-item.submenu ul .nav-item:hover .nav-link{
+background:#384aeb;
+color:#fff}
+
+
+/* ____________Настройки ниспадающего меню сверху________________*/
+
+@media (min-width: 992px){.header_area .navbar .nav .nav-item.submenu:hover ul{visibility:visible;opacity:1;top:100%}}
+.header_area .navbar .nav .nav-item.submenu:hover ul .nav-item{
+margin-top:0px}
+
+.header_area .navbar .nav .nav-item:last-child{
+margin-right:0px}
+
+.header_area .navbar .search{
+font-size:12px;
+line-height:60px;
+display:inline-block;
+color:#222}
+
+.header_area .navbar .search i{font-weight:600}
+
+.header_area.navbar_fixed .main_menu{
+position:fixed;
+width:100%;
+top:-70px;
+left:0;
+right:0;
+background:#ffffff;
+-webkit-transform:translateY(70px);
+-moz-transform:translateY(70px);
+-ms-transform:translateY(70px);
+-o-transform:translateY(70px);
+transform:translateY(70px);
+-webkit-transition:all 0.3s ease 0s;
+-moz-transition:all 0.3s ease 0s;
+-o-transition:all 0.3s ease 0s;
+transition:all 0.3s ease 0s;
+box-shadow:0px 3px 16px 0px rgba(0,0,0,0.1)}
+
+.header_area.navbar_fixed .main_menu .navbar .nav .nav-item .nav-link{
+line-height:70px}
+
+#search_input_box{
+text-align:center;
+padding:5px 20px}
+
+#search_input_box .form-control{
+padding-left:0;
+background:transparent;
+border:0;
+color:#ffffff;
+font-weight:600;
+font-size:18px}
+
+#search_input_box .form-control:focus{
+box-shadow:none;
+outline:none}
+
+#search_input_box input.placeholder{
+color:#ffffff;
+font-size:16px}
+
+#search_input_box input:-moz-placeholder{
+color:#ffffff;
+font-size:16px}
+
+#search_input_box input::-moz-placeholder{
+color:#ffffff;
+font-size:16px}
+
+#search_input_box input::-webkit-input-placeholder{
+color:#ffffff;
+font-size:16px}
+
+#search_input_box .btn{
+width:0;
+height:0;
+padding:0;
+border:0}
+
+#search_input_box .lnr-cross{
+color:#fff;
+font-weight:600;
+cursor:pointer;
+padding:10px 0}
+
+.header-top{background:#000000}
+
+@media (max-width: 991px){.header-top{display:none}}
+
+.header-top a{
+color:#fff}
+
+.header-top ul li{
+display:inline-block;
+margin-left:15px}
+
+.header-top .header-top-left a{
+margin-right:60px;
+font-weight:600}
+
+.header-top .header-top-left a .text{
+margin-top:-2px}
+
+.header-top .header-top-left a .text span{
+font-size:14px;
+color:#ffffff}
+
+.header-top .header-top-left a .lnr{
+color:#ffffff;
+margin-right:8px}
+
+@media (max-width: 767px){.header-top .header-top-left .text{display:none}}
+
+.header-top .header-top-right{
+text-align:right}
+
+.header-top .header-top-right a{
+padding:0 20px;
+height:40px;
+display:inline-block;
+line-height:40px;
+font-size:14px;
+font-weight:600;
+font-family:"Oswald",sans-serif;
+background:transparent;
+-webkit-transition:all 0.3s ease 0s;
+-moz-transition:all 0.3s ease 0s;
+-o-transition:all 0.3s ease 0s;
+transition:all 0.3s ease 0s}
+
+
+ /*  ___Кнопка сверху справо - Войти . Выйти из аккаунта___  */
+
+.nav-shop li{
+display:inline-block;
+margin-top: 10px;
+margin-right:15px}
+
+ /*  ___Наверху иконка тележки и лупы___ */
+
+.nav-shop li i,.nav-shop li span{
+font-size: 20px;
+color:#222}
+
+.nav-shop li button{
+padding:0;
+border:0;
+background:transparent;
+position:relative}
+
+.nav-shop li button .nav-shop__circle{
+font-size:9px;
+display:inline-block;
+background:#384aeb;
+color: #fff;
+padding:0px 5px;
+border-radius:50%;
+position:absolute;
+top:-8px;
+right:-12px}
+
+.nav-shop li:last-child{
+margin-left:40px}
+
+
+ /*   */
+
+
+@media (max-width: 1619px){.header_area .navbar .search{margin-left:40px}}
+@media (max-width: 1199px){.header_area .navbar .nav .nav-item{margin-right:28px}
+
+.home_banner_area .banner_inner{
+padding:100px 0px}
+
+.header_area .navbar .tickets_btn{
+margin-left:40px}}
+
+@media (max-width: 991px){
+.navbar-toggler{
+border:none;
+border-radius:0px;
+padding:0px;
+cursor:pointer;
+margin-top:27px;
+margin-bottom:23px}
+
+.header_area .navbar{
+background:#ffffff}
+
+.navbar-toggler[aria-expanded="false"] span:nth-child(2){opacity:1}
+
+.navbar-toggler[aria-expanded="true"] span:nth-child(2){opacity:0}
+
+.navbar-toggler[aria-expanded="true"] span:first-child{transform:rotate(-45deg);position:relative;top:7.5px}
+
+.navbar-toggler[aria-expanded="true"] span:last-child{transform:rotate(45deg);bottom:6px;position:relative}
+
+.navbar-toggler span{
+display:block;
+width:25px;
+height:3px;
+background:#384aeb;
+margin:auto;
+margin-bottom:4px;
+transition:all 400ms linear;
+cursor:pointer}
+
+.navbar .container{padding-left:15px;
+padding-right:15px}
+
+.nav{padding:0px 0px}
+
+.header_area+section,.header_area+row,.header_area+div{margin-top:117px}
+
+.header_top .nav{padding:0px}
+
+.header_area .navbar .nav .nav-item .nav-link{
+line-height:30px;
+margin-right:0px;
+display:block;
+border-bottom:1px solid #ededed33;
+border-radius:0px}
+
+.header_area .navbar .nav-shop{padding-bottom:40px}
+
+.header_area .navbar .search{margin-left:0px}
+
+.header_area .navbar-collapse{max-height:340px;overflow-y:scroll}
+
+.header_area .navbar .nav .nav-item.submenu ul .nav-item .nav-link{padding:0px 15px}
+
+.header_area .navbar .nav .nav-item{margin-right:0px}
+
+.header_area+section,.header_area+row,.header_area+div{
+margin-top:0px;
+padding-top:71px}
+
+.header_area.navbar_fixed .main_menu .navbar .nav .nav-item .nav-link{line-height:40px}
+
+.categories_post img{width:100%}
+
+.categories_post{max-width:360px;margin:0 auto}
+
+.blog_categorie_area .col-lg-4{margin-top:30px}
+
+.blog_area{padding-bottom:80px}
+
+.single-post-area .blog_right_sidebar{margin-top:30px}
+
+.contact_info{margin-bottom:50px}
+
+.home_banner_area .donation_inner{margin-bottom:-30px}
+
+.home_banner_area .dontation_item{max-width:350px;margin:auto}
+
+.footer-area .col-sm-6{margin-bottom:30px}
+
+.header_area .navbar .tickets_btn{margin-left:0px}
+
+.home_banner_area{min-height:700px}}
+
+
+
+@media (max-width: 767px){.home_banner_area{min-height:500px}.home_banner_area .banner_inner{min-height:500px}
+
+.home_banner_area .banner_inner .banner_content{margin-top:0px}
+
+.blog_banner .banner_inner .blog_b_text h2{
+font-size:40px;
+line-height:50px}
+
+.footer-area{
+padding:70px 0px}
+
+.single-footer-widget .sub-btn{right:0px}}
+
+
+
+@media (max-width: 480px){.header_area .navbar-collapse{max-height:250px}
+
+.home_banner_area .banner_inner .banner_content{margin-top:0px}
+
+.home_banner_area .banner_inner .banner_content h3{font-size:24px}
+
+.banner_area .banner_inner .banner_content h2{font-size:32px}
+
+.comments-area .thumb{margin-right:10px}}
+
+
+
+
+
+
+.section-intro p{margin-bottom:3px}
+
+.section-intro__style{
+border-bottom:2px solid #384aeb;
+padding-bottom:8px}
+
+
+/* ___НАСТРОЙКИ ЦЕНТРАЛЬНОГО БАННЕРА___ */
+
+.hero-banner{
+background: #F1F6F7;
+position: relative;
+margin-bottom: 20px}
+
+
+
+@media (min-width: 991px){.hero-banner{z-index:111}}.hero-banner::before{
+content:"";
+display:block;
+width:5%;
+height:100%;
+background:#384aeb;
+position:absolute;
+top:0;
+left:0}
+
+@media (min-width: 575px){.hero-banner::before{width:20%}}
+
+
+
+ /* _________________ 35%  это соотношение синего фона с голубым  _________________  */
+
+@media (min-width: 991px){.hero-banner::before{width:35%}}
+ /* _________________ 35%  это соотношение синего фона с голубым  _________________  */
+
+ /* _________________ ниже сама картинка, которую обновляем через админку  _________________  */
+
+
+  /* ___КОНТЕЙНЕР ДЛЯ ГЛАВНОЙ КАРТИНКИ___  */
+
+.hero-banner__img{
+position:relative;
+top: -30px;
+margin-bottom: 10px;
+}
+
+
+
+ /* _________________ шрифт справо от картинки мобильника  _________________  */
+
+.hero-banner__content h4{
+font-size:30px;
+font-family:"Roboto",
+sans-serif;
+color:#555555;
+margin-bottom:12px}
+
+.hero-banner__content h1{
+font-family:"Roboto",
+sans-serif;
+font-size:25px;
+text-transform:uppercase;
+font-weight:700;
+margin-bottom:10px}
+
+
+
+
+@media (min-width: 767px){.hero-banner__content h1{font-size:30px;margin-bottom:25px}}
+
+@media (min-width: 991px){.hero-banner__content h1{font-size:50px}}
+
+.hero-banner__content p{margin-bottom:10px}
+
+
+
+
+
+/* --- ОФОРМЛЕНИЕ ЦЕНТРАЛЬНОЙ ПАНЕЛИ С ОТОБРАЖЕНИЕМ МОБИЛЬНИКОВ (8 штук)   */
+
+.card-product{
+border:0;
+margin-bottom:30px}
+
+.card-product p{
+margin-bottom:0}
+
+.card-product__img{
+position:relative}
+
+.card-product__imgOverlay{
+background:rgba(255,255,255,0.5);
+position:absolute;
+bottom:0;
+left:0;
+width:100%;
+padding:30px 5px;
+transform:translateY(30px);
+opacity:0;
+z-index:-1;
+transition:all .48s ease}
+
+.card-product__imgOverlay li{
+display:inline-block}
+
+
+.card-product__imgOverlay li button{
+border:0;
+border-radius:0;
+padding:7px 12px;
+background:#8894ff}
+
+.card-product__imgOverlay li button i,
+.card-product__imgOverlay li button span{
+font-size:15px;
+color:#fff;
+vertical-align:middle}
+
+.card-product__imgOverlay li button:hover{
+background:#384aeb}
+
+.card-product__imgOverlay li:not(:last-child){
+margin-right:5px}
+
+.card-product__title a{
+color:#222}
+
+.card-product__price{
+font-size:18px;
+font-weight:500}
+
+.card-product:hover .card-product__imgOverlay{
+opacity:1;
+z-index:1;
+transform:translateY(0)}
+
+.card-product:hover .card-product__title a{color:#384aeb}
+
+
+
+
+/* --- ОСНОВНАЯ КАРТИНКА ВНИЗУ С ТЕЛЕЖКОЙ---*/
+
+.offer{background:url("../img/home/parallax-bg.png") right center no-repeat;background-size:cover}
+
+@media (min-width: 1200px){
+.offer{
+background-size:100% 100%}}
+
+.offer__content{
+padding:100px 0 110px 0}
+
+@media (min-width: 1000px){
+.offer__content{
+padding:122px 0 135px 0}}
+
+/* --- ОСНОВНАЯ КАРТИНКА ВНИЗУ С ТЕЛЕЖКОЙ---*/
+
+
+.offer__content h3{
+font-size:35px;
+font-weight:400;
+margin-bottom:20px}
+
+@media (min-width: 650px){.offer__content h3{font-size:50px;margin-bottom:25px}}
+
+.offer__content h4{font-size:30px}
+
+.offer__content p{color:#555555}
+
+#bestSellerCarousel .owl-prev,#bestSellerCarousel .owl-next{
+width:40px;
+height:40px;
+background:#f1f6f7}
+
+#bestSellerCarousel .owl-prev i,#bestSellerCarousel .owl-prev span,#bestSellerCarousel .owl-next i,#bestSellerCarousel
+
+.owl-next span{
+font-size:15px;
+color:#384aeb;
+line-height:40px}
+
+#bestSellerCarousel .owl-prev:hover,#bestSellerCarousel .owl-next:hover{background:#384aeb}
+
+#bestSellerCarousel .owl-prev:hover i,#bestSellerCarousel .owl-prev:hover span,
+
+#bestSellerCarousel .owl-next:hover i,#bestSellerCarousel .owl-next:hover span{color:#fff}
+
+
+
+
+/* --- ОКНО ВНИЗУ С ПОДПИСКОЙ  - SUBSCRIBE ---*/
+
+.subscribe{
+padding:45px 10px;
+background:#fff;
+border-radius:5px;
+box-shadow:0px -5px 20px 0px rgba(56,74,235,0.1)}
+
+
+@media (min-width: 1000px){
+
+.subscribe{
+padding:85px 10px}}
+
+.subscribe__title{
+font-size:28px;
+font-weight:500;
+text-transform:uppercase;
+margin-bottom:16px}
+
+
+
+@media (min-width: 1000px){
+
+.subscribe__title{
+font-size:36px}}
+
+.subscribe-form .form-group{
+margin-bottom:0;
+position:relative}
+
+.subscribe-form .form-group .info{
+position:absolute;
+top:50px;
+left:10px;
+color:#384aeb}
+
+.subscribe-form .form-control{
+border-radius:30px;
+height:50px;
+border-color:#EEEEEE;
+padding-left:20px;
+font-size:14px}
+
+
+
+
+
+
+@media (min-width: 800px){
+
+.subscribe-form .form-control{
+min-width:380px}}
+
+.subscribe-form .form-control::placeholder{
+color:#999999}
+
+.subscribe-form .form-control:focus{
+outline:0;
+box-shadow:none}
+
+.subscribe-form button{
+margin-left:15px}
+
+.subscribe-position{
+margin-bottom:20px}
+
+
+/* --- ОКНО ВНИЗУ С ПОДПИСКОЙ  - SUBSCRIBE - РАСПОЛОЖЕНИЕ ---*/
+
+@media (min-width: 1000px){
+.subscribe-position{
+position:relative;
+top:100px;
+margin-bottom:0}}
+
+
+
+
+    /* НАСТРОЙКИ ВИДА КНОПОК ! */
+
+
+.button{
+display:inline-block;
+border:1px solid #384aeb;
+border-radius:30px;
+color:#222;
+font-weight:500;
+padding:12px 50px;
+background: #384aeb;
+color:#fff;
+transition:all .4s ease}
+
+
+
+@media (max-width: 767px){.button{padding:8px 25px !important}}
+
+.button-subscribe{
+font-size:14px;
+padding:10px 20px}
+
+@media (min-width: 800px){.button-subscribe{padding:12px 35px;font-size:15px}}
+
+.button-blog{
+padding:5px 31px;
+font-size:14px;
+background:#f9f9ff;
+border-color:#EEEEEE;
+border-radius:0;
+color:#222}
+
+.button-blog:hover{background:#384aeb !important;color:#fff !important}
+
+.button-postComment{border-radius:4px;font-size:14px;margin-top:5px}
+
+.button-contact{border-radius:0;padding:12px 26px}
+
+.button-tracking{font-size:14px;padding:8px 42px}
+
+.button-login{font-size:15px;padding:7px 44px}
+
+.button-coupon{font-size:15px;padding:6px 45px}
+
+.button-paypal{width:100%;padding:8px 30px}
+
+.button-account{
+padding:7px 42px;
+background:transparent;
+border-color:#fff}
+
+.button-account:hover{
+border-color:#fff !important}
+
+
+
+    /* КНОПОКА СВЕРХУ ДЛЯ ВХОДА В АКК ! */
+
+.button-header{
+padding:10px 45px;
+background:transparent;
+color:#222;
+border-color: #a9b1f6}
+
+.button-hero{
+padding:12px 41px}
+
+.button--active{
+background: #384aeb;
+color: #fff}
+
+.button-contactForm{
+border:1px solid #384aeb !important;
+border-radius:0;
+padding:11px 26px}
+
+.button-review{
+padding:12px 40px;
+border-radius:30px}
+
+
+    /* ___КНОПОКА  - НАСТРОЙКА ПРИ НАВЕДЕНИИ___ */
+
+.button:hover{
+border-color: #00298a;
+background: #f5f7fb;
+color: #222}
+
+
+.button-register{
+font-size:14px;
+border:0;
+border-radius:0;
+padding:9px 15px;
+text-transform:uppercase;
+background:#c5322d}
+
+.button-register:hover{
+background:#c5322d;
+opacity:.7;
+color:#fff}
+
+.blog-banner{position:relative}
+
+.blog-banner h4,.blog-banner h1,.blog-banner a{text-transform:capitalize;color:#fff}
+
+.blog-banner h4{font-size:18px;margin-bottom:15px}
+
+.blog-banner h1{font-size:30px;margin-bottom:10px;color:#222}
+
+@media (min-width: 992px){.blog-banner h1{font-size:36px}}
+
+.blog-banner-area{
+height:280px;
+position:relative;
+z-index:1}
+
+
+.order_details_table h2{
+color:#222;
+font-size:18px;
+padding-bottom:15px}
+
+.order_details_table .table{margin-bottom:0px}
+
+.order_details_table .table thead tr th{
+border-bottom:1px solid #ddd;
+font-size:16px;
+font-family:"Oswald",sans-serif;
+font-weight:normal;
+color:#222}
+
+
+.review_box p{
+margin-bottom:0px;
+color:#555555;
+display:inline-block}
+
+.review_box .list{
+display:inline-block;
+padding-left:10px;
+padding-right:10px}
+
+.review_box .list li{
+display:inline-block}
+
+.review_box .list li a{
+display:inline-block;
+color:#fbd600}
+
+.review_box .contact_form{
+margin-top:15px}
+
+.review_box .primary-btn{
+line-height:38px !important;
+padding:0px 38px;
+text-transform:uppercase;
+margin-right:10px;
+border-radius:5px;
+border:none}
+
+.form-review .form-control{
+height:46px;
+background:transparent;
+border:1px solid #EEEEEE;
+font-size:14px;
+color:#999999}
+
+.footer-area{
+background:#002347;
+padding:50px 0px 50px}
+
+@media (min-width: 1000px){.footer-area{padding:195px 0px 120px}}
+
+.single-footer-widget p{margin-bottom:15px}
+.single-footer-widget p:last-child{margin-bottom:0}
+.single-footer-widget .instafeed{margin-left:-5px;margin-right:-5px}
+.single-footer-widget .instafeed li{margin:5px}
+
+
+
+.single-footer-widget .sm-head{color:#fff;margin-bottom:0px}
+
+.single-footer-widget .sm-head span{
+position:relative;
+margin-left:-40px;
+margin-right:10px;
+display:inline-block;
+width:28px;
+height:28px;
+line-height:28px;
+text-align:center;
+background:#384aeb;
+color:#ffffff;
+border-radius:20px}
+
+.tp_widgets .list li{margin-bottom:12px}
+
+.tp_widgets .list li a{
+color:#7b838a;
+font-family:"Roboto",
+sans-serif}
+
+.tp_widgets .list li a:hover{color:#384aeb}
+.tp_widgets .list li:last-child{margin-bottom:0px}
+.tp_widgets p{color:#7b838a}
+
+
+.footer_title{
+font-size:18px;
+line-height:24px;
+font-weight:500;
+font-family:"Oswald",sans-serif;
+text-transform:capitalize;
+color:#fff;
+margin-bottom:28px}
+
+@media (max-width: 991px){.footer_title{margin-bottom:10px}}
+
+.footer_title.large_title{
+font-size:36px;
+font-weight:600}
+
+@media (max-width: 1199px){.footer_title.large_title{font-size:18px}}
+
+.footer-bottom{
+background:rgba(0,35,71,0.980392);
+padding:32px}
+
+.footer-bottom .footer-text{
+color:#fff;
+margin-bottom:0}
+
+.footer-bottom .footer-text a{
+color:#384aeb;
+opacity:1}
+
+.footer-only{
+padding-top:60px !important;
+padding-bottom:60px !important}
+
+@media (min-width: 1000px){.footer-only{padding-top:115px !important;padding-bottom:115px !important}}

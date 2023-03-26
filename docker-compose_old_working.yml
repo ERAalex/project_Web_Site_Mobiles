@@ -1,0 +1,77 @@
+version: "3.7"
+
+services:
+  shop_m:
+    container_name: django_test_cont
+    image: mobile_shop_app
+    command: python manage.py runserver 0.0.0.0:8000 --noreload
+    ports:
+      - 80:8000
+    depends_on:
+      - db_postgres
+
+  db_postgres:
+    container_name: django_post_cont
+    image: postgres
+    environment:
+      POSTGRES_DB: "shop_mob"
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "1221"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d shop_mob"]
+      interval: 10s
+      timeout: 30s
+      retries: 5
+      start_period: 30s
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data/
+    ports:
+      - "5440:5432"
+
+  pgadmin:
+    container_name: django_pgadmin_cont
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "eraspb@mail.ru"
+      PGADMIN_DEFAULT_PASSWORD: "nazca007"
+    ports:
+      - "5555:80"
+
+
+
+
+#
+#  nginx:
+#    image: 'nginx'
+#    ports:
+#      - '80:80'
+#    volumes:
+#      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+#    depends_on:
+#      - website
+#      - postgresql
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

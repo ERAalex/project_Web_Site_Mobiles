@@ -1,0 +1,152 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+
+{% block title %} <title>All Phones - Espinosa</title>{% endblock %}
+
+{% block styles %}
+     <!--  здесь пришлось поменять цвет текста под темно-зеленый         -->
+  <link rel="stylesheet" href="{% static 'vendors/bootstrap/bootstrap.min_prod.css' %}">
+    <!--   иконки из бутстрапа         -->
+  <link rel="stylesheet" href="{% static 'vendors/themify-icons/themify-icons.css' %}">
+    <!--   основные css         -->
+
+  <link rel="stylesheet" href="{% static 'css/products.css' %}">
+
+
+{% endblock %}
+
+{% block main_picture %}
+
+<div class="col-5 d-none d-sm-block">
+    <div class="hero-banner__img">
+        <img class="img-fluid" src="{% static '/img/home/mobile_prod_2.jpg' %}" alt="">
+    </div>
+
+</div>
+<div class="col-sm-7 col-lg-6 offset-lg-1 pl-4 pl-md-5 pl-lg-0">
+    <div class="hero-banner__content">
+        <h4>Espinosa Rozov</h4>
+        <h1>Только лучшие технологии</h1>
+        <p>Наш магазин специализируется на продаже новых телефонов, только лучшее качество с постгарантийным ремонтом</p>
+        <p>Внимание! Данный сайт является тренировочным проектом python разработчика и не является
+            коммерческим проектом (реальным магазином)</p>
+        <a class="button button-hero" href="{% url 'products' %}">Смотреть Каталог</a>
+    </div>
+</div>
+
+{% endblock %}
+
+
+
+    <!-- ================ trending product section start ================= -->
+{% block content %}
+
+    <section class="section-margin calc-60px">
+      <div class="container">
+        <div class="section-intro pb-60px">
+          <p>Популярные модели на рынке</p>
+          <h3>Показать модели:</h3>
+              <a href="{% url 'products' %}" class="section-intro__style">Все модели</a>
+            -
+              <a href="{% url 'apple' %}" class="section-intro__style">Apple</a>
+            -
+              <a href="{% url 'samsung' %}" class="section-intro__style">Samsung</a>
+            -
+              <a href="{% url 'huawei' %}" class="section-intro__style">Huawei</a>
+            -
+              <a href="{% url 'honor' %}" class="section-intro__style">Honor</a>
+            -
+              <a href="{% url 'prod_chip' %}" class="section-intro__style">Сначало недорогие</a>
+            -
+              <a href="{% url 'prod_expens' %}" class="section-intro__style">Сначало дорогие</a>
+
+        </div>
+
+
+
+                      <!-- ================ DJANGO вывод телефонов по марке - Apple,Samsung... ================= -->
+
+
+        <div class="show_all_obj">
+          {% for product in all_products_show %}
+              <div class="card-product__img">
+                  <img src="{{ product.small_image.url }}" width="146" height="180">
+                  <h4 class="card-product__title"><a href="{% url 'product_detail' product.id %}">{{ product.title }}</a></h4>
+                  <p class="card-product__price">{{ product.price}} руб.</p>
+                    <form action ="{% url 'cart:cart_add' product.id %}" method="post">
+                        {{ cart_product_form }}
+                        {% csrf_token %}
+                        <input type="submit" value="В корзину">
+                    </form>
+                  <p class="card-product__price"><font size="3" color="#fa8e47">{{ product.get_final_price|default_if_none:""  }}</font></p>
+    <!-- =если пусто в значении, то будет показывать NONE, чтобы вообще ничего не показыват ставим код выше= default... -->
+              </div>
+          {% endfor %}
+        </div>
+
+                    <!-- ================ DJANGO PAGINATION ================= -->
+
+        <div class="show_all_obj">
+
+              {% for product in pag_prod %}
+              <div class="card-product__img">
+                <div>
+                    <img src="{{ product.artimage.url }}" width="146" height="180">
+                  <h4 class="card-product__title"><a href="{% url 'product_detail' product.id %}">{{ product.title }}</a></h4>
+                    <p class="card-product__price">{{ product.price}} руб.</p>
+
+                     <!-- ================ часть кода с возможностью загрузить товар в корзину ================= -->
+
+                    <form action="{% url 'cart:cart_add' product.id %}" method="post">
+                        {{ cart_product_form }}
+                        {% csrf_token %}
+                        <input type="submit" value="в корзину">
+                    </form>
+                    <!-- ================ часть кода с возможностью загрузить товар в корзину ================= -->
+
+                  <p class="card-product__price"><font size="3" color="#fa8e47">{{ product.get_final_price|default_if_none:""  }}</font></p>
+                    <!-- =если пусто в значении, то будет показывать NONE, чтобы вообще ничего не показыват ставим код выше= -->
+                </div>
+              </div>
+              {% endfor %}
+
+        </div>
+
+
+           <!-- ================ DJANGO PAGINATION scroll ================= -->
+    {% if pag_prod.has_other_pages %}
+        <div class="container_pagin">
+            <nav id="pagination" class="col align-self-center" aria-label="Page navigation example">
+                <ul class="pagination">
+                {% if pag_prod.has_previous %}
+                    <li class="page-item"><a class="page-link" href="?page={{ pag_prod.previous_page_number }}">&laquo;</a></li>
+                {% else %}
+                <li class="page-item disabled"><span class="page-link" href="#" tabindex="-1" aria-disabled="true">&laquo;</span></li>
+                {% endif %}
+                {% for i in pag_prod.paginator.page_range %}
+                    {% if i > pag_prod.number|add:-4 and i < pag_prod.number|add:4 %}
+                        {% if pag_prod.number == i %}
+                            <li class="page-item active" aria-current="page"><a class="page-link" href="#">{{ i }} <span class="sr-only">(current)</span></a></li>
+                        {% else %}
+                            <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+                {% if pag_prod.has_next %}
+                    <li class="page-item"><a class="page-link" href="?page={{ pag_prod.next_page_number }}">&raquo;</a></li>
+                {% else %}
+                <li class="page-item disabled"><span class="page-link" href="#" tabindex="-1" aria-disabled="true">&raquo;</span></li>
+                {% endif %}
+                </ul>
+            </nav>
+        </div>
+    {% endif %}
+           <!-- ================ DJANGO PAGINATION ================= -->
+      </div>
+    </section>
+
+
+{% endblock %}
+

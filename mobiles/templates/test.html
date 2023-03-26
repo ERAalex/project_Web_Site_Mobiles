@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+{% for imag_top1 in top_model_image1 %}
+ <img class="img-fluid" src="{{ imag_top1.small_image.url }}" alt="">
+ <p>{{spr_niz.date}}</p>
+{% endfor %}
+
+</body>
+</html>

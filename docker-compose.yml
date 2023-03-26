@@ -1,0 +1,93 @@
+version: "3.7"
+
+services:
+  shop_m2:
+    container_name: django_test_cont
+    # cразу указываем, что собираем из Dockerfile image (точка показывает текущую директорию)
+    build: .
+    # даем имя нашему изображению
+    image: mobile_shop_app
+    command: gunicorn shop_m.wsgi:application --bind 0.0.0.0:8000
+    volumes:
+      - static_volume:/home/shop_m/static
+      - media_volume:/home/shop_m/media
+    expose:
+      - 8000
+    depends_on:
+      - db_postgres
+
+
+  db_postgres:
+    # учти, когда будем заходитьв админку pgAdmin именно имя контейнера будет host-ом
+    container_name: django_post_cont
+    image: postgres
+    environment:
+      POSTGRES_DB: "shop_mob"
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "1221"
+    # постоянно делаем входы в БД чтобы проверить что она не упала или зависла
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d shop_mob"]
+      interval: 10s
+      timeout: 30s
+      retries: 5
+      start_period: 30s
+    # интересный момент при Restore БД через pgAdmin все сохранилось в папку postgres_data и при перезапуске контейнеров
+    # не надо еще раз заполнять данными БД тк папка уже существует и вней уже есть инфомрация
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data/
+    # указал другой порт - 5440 тк 5432 был занят
+    ports:
+      - "5440:5432"
+
+  pgadmin:
+    container_name: django_pgadmin_cont
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "eraspb@mail.ru"
+      PGADMIN_DEFAULT_PASSWORD: "nazca007"
+    ports:
+      - "5555:80"
+
+  nginx:
+    restart: always
+    build: ./nginx
+    volumes:
+      - static_volume:/home/shop_m/static
+      - media_volume:/home/shop_m/media
+    ports:
+      - 1337:80
+    depends_on:
+      - shop_m2
+
+volumes:
+  postgres_data:
+  static_volume:
+  media_volume:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
