@@ -25,7 +25,7 @@ The project has a shopping cart with the ability to add products and display the
 
 ### Manual
 
-Docker containers: Django project + PostgreSQL + PgAdmin + Nginx <br>
+Docker containers: Django project + PostgreSQL + PgAdmin + Nginx <br><br>
 To build this containers run in the folder of the `docker-compose`-file: 
 
 1. `docker-compose build`
