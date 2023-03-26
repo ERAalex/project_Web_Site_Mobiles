@@ -29,7 +29,7 @@ To build this container run in the folder of the `docker-compose`-file:
 
 1. `docker-compose build`
 2. `docker-compose run -d` this runs the containers detachted
-3. Open you favourite browser and go to [localhost/index/](localhost/index/)
+3. Open you favourite browser and go to [localhost/]
 4. To shutdown run `docker-compsose down`
 
 
